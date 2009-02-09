@@ -1,0 +1,33 @@
+<p>
+  <b>Subject:</b>
+  <%=h @notice.subject %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @notice.description %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @notice.user_id %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%=h @notice.project_id %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @notice.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @notice.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_notice_path(@notice) %> |
+<%= link_to 'Back', notices_path %>

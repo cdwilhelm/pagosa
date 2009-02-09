@@ -1,0 +1,1622 @@
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.017970)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000756)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S02Table 'pagosa_development.schema_migrations' doesn't exist: SELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002379)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.179294)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.340705)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.003477)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002586)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.024547)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.096874)[0m   [0mSHOW FIELDS FROM `notice`[0m
+  [4;36;1mSQL (0.030338)[0m   [0;1mdescribe `notice`[0m
+  [4;35;1mSQL (0.017805)[0m   [0mSHOW KEYS FROM `notice`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.089606)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.005098)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.422607)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.000905)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.001059)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.038952)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000659)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000623)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.002781)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.342640)[0m   [0mCREATE TABLE `notice` (`noticeid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `projectid` bigint(20) NOT NULL, `subject` bigint(20) DEFAULT NULL NULL, `description` text DEFAULT NULL NULL, `date_created` datetime DEFAULT NULL NULL, `date_updated` datetime DEFAULT NULL NULL, `planned_date` date DEFAULT NULL NULL, `userid` bigint(20) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.335822)[0m   [0;1mCREATE UNIQUE INDEX `projectid` ON `notice` (`projectid`)[0m
+  [4;35;1mSQL (0.016570)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.247483)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.669150)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.002238)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002055)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.056992)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('0')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001214)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.001322)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.054476)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003471)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002279)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.161219)[0m   [0mCREATE TABLE `project` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.015712)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.040907)[0m   [0mDROP TABLE `notice`[0m
+  [4;36;1mSQL (0.095085)[0m   [0;1mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `userid` int(11) DEFAULT NULL NULL, `project_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002203)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.204039)[0m   [0;1mCREATE TABLE `comment` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `userid` int(11) DEFAULT NULL NULL, `notice_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002052)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.034412)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.061213)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('99')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001021)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.006166)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.002190)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003462)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003552)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.055365)[0m   [0mDROP TABLE `project`[0m
+  [4;36;1mSQL (0.164720)[0m   [0;1mCREATE TABLE `project` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.004458)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.051677)[0m   [0;1mDROP TABLE `notice`[0m
+  [4;35;1mSQL (0.133690)[0m   [0mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `userid` int(11) DEFAULT NULL NULL, `project_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002210)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.050167)[0m   [0mDROP TABLE `comment`[0m
+  [4;36;1mSQL (0.153296)[0m   [0;1mCREATE TABLE `comment` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `userid` int(11) DEFAULT NULL NULL, `notice_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.017276)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001726)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001240)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.001403)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.001667)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002537)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002370)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.077537)[0m   [0mDROP TABLE `project`[0m
+  [4;36;1mSQL (0.160426)[0m   [0;1mCREATE TABLE `project` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002546)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.043924)[0m   [0;1mDROP TABLE `notice`[0m
+  [4;35;1mSQL (0.137268)[0m   [0mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `userid` int(11) DEFAULT NULL NULL, `project_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002422)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.039434)[0m   [0mDROP TABLE `comment`[0m
+  [4;36;1mSQL (0.155892)[0m   [0;1mCREATE TABLE `comment` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `userid` int(11) DEFAULT NULL NULL, `notice_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.017622)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001497)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001813)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000801)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.001609)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.010853)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002624)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.082904)[0m   [0mDROP TABLE `project`[0m
+  [4;36;1mSQL (0.280769)[0m   [0;1mCREATE TABLE `project` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `project_id` int(11) DEFAULT NULL NULL, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.027985)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.144825)[0m   [0;1mDROP TABLE `notice`[0m
+  [4;35;1mSQL (0.194467)[0m   [0mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `notice_id` int(11) DEFAULT NULL NULL, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` int(11) DEFAULT NULL NULL, `project_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.006124)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.044265)[0m   [0mDROP TABLE `comment`[0m
+  [4;36;1mSQL (0.152680)[0m   [0;1mCREATE TABLE `comment` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment_id` int(11) DEFAULT NULL NULL, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` int(11) DEFAULT NULL NULL, `notice_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.030550)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002552)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001546)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.001007)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.004243)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003402)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.101776)[0m   [0;1mDROP TABLE `project`[0m
+  [4;35;1mSQL (0.221841)[0m   [0mCREATE TABLE `project` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `project_id` int(11) DEFAULT NULL NULL, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.003664)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.055946)[0m   [0mDROP TABLE `notice`[0m
+  [4;36;1mSQL (0.186183)[0m   [0;1mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `notice_id` int(11) DEFAULT NULL NULL, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` int(11) DEFAULT NULL NULL, `project_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.003581)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.061068)[0m   [0;1mDROP TABLE `comment`[0m
+  [4;35;1mSQL (0.146855)[0m   [0mCREATE TABLE `comment` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment_id` int(11) DEFAULT NULL NULL, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` int(11) DEFAULT NULL NULL, `notice_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.003187)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.010066)[0m   [0mSELECT version FROM `schema_migrations`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001026)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000886)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.006962)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002575)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.081074)[0m   [0;1mDROP TABLE `project`[0m
+  [4;35;1mSQL (0.224570)[0m   [0mCREATE TABLE `project` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `project_id` int(11) DEFAULT NULL NULL, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.012151)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.085964)[0m   [0mDROP TABLE `notice`[0m
+  [4;36;1mSQL (0.185065)[0m   [0;1mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `notice_id` int(11) DEFAULT NULL NULL, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` int(11) DEFAULT NULL NULL, `project_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002397)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.031806)[0m   [0;1mDROP TABLE `comment`[0m
+  [4;35;1mSQL (0.178856)[0m   [0mCREATE TABLE `comment` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment_id` int(11) DEFAULT NULL NULL, `comment_` varchar(1024) DEFAULT NULL NULL, `user_id` int(11) DEFAULT NULL NULL, `notice_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.012203)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001553)[0m   [0mSELECT version FROM `schema_migrations`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001112)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000801)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.003513)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002687)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.117015)[0m   [0;1mDROP TABLE `project`[0m
+  [4;35;1mSQL (0.234027)[0m   [0mCREATE TABLE `project` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `project_id` int(11) DEFAULT NULL NULL, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.012794)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.040061)[0m   [0mDROP TABLE `notice`[0m
+  [4;36;1mSQL (0.227186)[0m   [0;1mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `notice_id` int(11) DEFAULT NULL NULL, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` int(11) DEFAULT NULL NULL, `project_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002397)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.050692)[0m   [0;1mDROP TABLE `comment`[0m
+  [4;35;1mSQL (0.121992)[0m   [0mCREATE TABLE `comment` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment_id` int(11) DEFAULT NULL NULL, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` int(11) DEFAULT NULL NULL, `notice_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.018413)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.215627)[0m   [0mCREATE TABLE `user` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) DEFAULT NULL NULL, `email` varchar(1024) DEFAULT NULL NULL, `name` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.006885)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001961)[0m   [0mSELECT version FROM `schema_migrations`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.002730)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.001054)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.006375)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002615)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.025749)[0m   [0;1mSHOW FIELDS FROM `comment`[0m
+  [4;35;1mSQL (0.019498)[0m   [0mdescribe `comment`[0m
+  [4;36;1mSQL (0.049934)[0m   [0;1mSHOW KEYS FROM `comment`[0m
+  [4;35;1mSQL (0.018636)[0m   [0mSHOW FIELDS FROM `notice`[0m
+  [4;36;1mSQL (0.028581)[0m   [0;1mdescribe `notice`[0m
+  [4;35;1mSQL (0.022021)[0m   [0mSHOW KEYS FROM `notice`[0m
+  [4;36;1mSQL (0.019267)[0m   [0;1mSHOW FIELDS FROM `project`[0m
+  [4;35;1mSQL (0.022405)[0m   [0mdescribe `project`[0m
+  [4;36;1mSQL (0.018983)[0m   [0;1mSHOW KEYS FROM `project`[0m
+  [4;35;1mSQL (0.013133)[0m   [0mSHOW FIELDS FROM `user`[0m
+  [4;36;1mSQL (0.029217)[0m   [0;1mdescribe `user`[0m
+  [4;35;1mSQL (0.024897)[0m   [0mSHOW KEYS FROM `user`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001162)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.006938)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.025905)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002694)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.087812)[0m   [0;1mDROP TABLE `project`[0m
+  [4;35;1mSQL (0.124592)[0m   [0mCREATE TABLE `project` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `project_id` int(11) DEFAULT NULL NULL, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.083611)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.073799)[0m   [0mDROP TABLE `notice`[0m
+  [4;36;1mSQL (0.165976)[0m   [0;1mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `notice_id` int(11) DEFAULT NULL NULL, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` int(11) DEFAULT NULL NULL, `project_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002253)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.073307)[0m   [0;1mDROP TABLE `comment`[0m
+  [4;35;1mSQL (0.180415)[0m   [0mCREATE TABLE `comment` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment_id` int(11) DEFAULT NULL NULL, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` int(11) DEFAULT NULL NULL, `notice_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.025031)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.094361)[0m   [0mDROP TABLE `user`[0m
+  [4;36;1mSQL (0.183197)[0m   [0;1mCREATE TABLE `user` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) DEFAULT NULL NULL, `email` varchar(1024) DEFAULT NULL NULL, `name` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002998)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.015007)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001252)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.001542)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.002795)[0m   [0;1mSHOW TABLES[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001077)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000797)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.008818)[0m   [0;1mSHOW TABLES[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.005891)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.001377)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.002502)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001488)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;36;1mSQL (0.001443)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.011019)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.040073)[0m   [0;1mDROP TABLE `comment`[0m
+  [4;35;1mSQL (0.213276)[0m   [0mCREATE TABLE `comment` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002488)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.039222)[0m   [0mDROP TABLE `notice`[0m
+  [4;36;1mSQL (0.141589)[0m   [0;1mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.018407)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.068384)[0m   [0;1mDROP TABLE `project`[0m
+  [4;35;1mSQL (0.148020)[0m   [0mCREATE TABLE `project` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.010970)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.059996)[0m   [0mDROP TABLE `user`[0m
+  [4;36;1mSQL (0.129599)[0m   [0;1mCREATE TABLE `user` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(1024) DEFAULT NULL NULL, `name` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.060083)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+  [4;36;1mSQL (0.005470)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002418)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.009765)[0m   [0;1mSHOW FIELDS FROM `comment`[0m
+  [4;35;1mSQL (0.625213)[0m   [0mdescribe `comment`[0m
+  [4;36;1mSQL (0.018706)[0m   [0;1mSHOW KEYS FROM `comment`[0m
+  [4;35;1mSQL (0.007442)[0m   [0mSHOW FIELDS FROM `notice`[0m
+  [4;36;1mSQL (0.647466)[0m   [0;1mdescribe `notice`[0m
+  [4;35;1mSQL (0.015892)[0m   [0mSHOW KEYS FROM `notice`[0m
+  [4;36;1mSQL (0.008550)[0m   [0;1mSHOW FIELDS FROM `project`[0m
+  [4;35;1mSQL (0.020427)[0m   [0mdescribe `project`[0m
+  [4;36;1mSQL (0.018588)[0m   [0;1mSHOW KEYS FROM `project`[0m
+  [4;35;1mSQL (0.007534)[0m   [0mSHOW FIELDS FROM `user`[0m
+  [4;36;1mSQL (0.643265)[0m   [0;1mdescribe `user`[0m
+  [4;35;1mSQL (0.016727)[0m   [0mSHOW KEYS FROM `user`[0m
+
+
+Processing InfoController#properties (for 127.0.0.1 at 2009-02-08 12:28:56) [GET]
+  Session ID: b6c3327972310c1a4ad8e2a059e5a386
+  Parameters: {"controller"=>"rails/info", "action"=>"properties"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000955)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000928)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.002045)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Completed in 0.14586 (6 reqs/sec) | Rendering: 0.00940 (6%) | DB: 0.00393 (2%) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-08 12:35:03) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--a776ddba1d5b2a783b33f814855eff4cdf835ec2
+  Parameters: {"controller"=>"home", "action"=>"index"}
+Rendering home/index
+Completed in 0.03095 (32 reqs/sec) | Rendering: 0.01649 (53%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-08 12:39:06) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--a776ddba1d5b2a783b33f814855eff4cdf835ec2
+  Parameters: {"controller"=>"home", "action"=>"index"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000837)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.001000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering home/index
+Completed in 0.02498 (40 reqs/sec) | Rendering: 0.01734 (69%) | DB: 0.00184 (7%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-08 12:57:12) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--a776ddba1d5b2a783b33f814855eff4cdf835ec2
+  Parameters: {"controller"=>"home", "action"=>"index"}
+Rendering home/index
+Completed in 0.03026 (33 reqs/sec) | Rendering: 0.01415 (46%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001217)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000782)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.400095)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.000795)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000859)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.041607)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.006696)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.002170)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.002955)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.115332)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.414638)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.020237)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002519)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001857)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;36;1mSQL (0.001200)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001974)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.114480)[0m   [0;1mCREATE TABLE `comment` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.023115)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.106234)[0m   [0;1mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.003221)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.115381)[0m   [0;1mCREATE TABLE `project` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.003846)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.119758)[0m   [0;1mCREATE TABLE `user` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(1024) DEFAULT NULL NULL, `name` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.036845)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+Migrating to CreateProjects (20090208210022)
+  [4;36;1mSQL (0.001568)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.098708)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `display_name` varchar(255) DEFAULT NULL NULL, `discription` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.054152)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090208210022')[0m
+  [4;35;1mSQL (0.001974)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.019509)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.008520)[0m   [0mSHOW FIELDS FROM `comment`[0m
+  [4;36;1mSQL (0.017602)[0m   [0;1mdescribe `comment`[0m
+  [4;35;1mSQL (0.048785)[0m   [0mSHOW KEYS FROM `comment`[0m
+  [4;36;1mSQL (0.009068)[0m   [0;1mSHOW FIELDS FROM `notice`[0m
+  [4;35;1mSQL (0.023764)[0m   [0mdescribe `notice`[0m
+  [4;36;1mSQL (0.020309)[0m   [0;1mSHOW KEYS FROM `notice`[0m
+  [4;35;1mSQL (0.019213)[0m   [0mSHOW FIELDS FROM `project`[0m
+  [4;36;1mSQL (0.020874)[0m   [0;1mdescribe `project`[0m
+  [4;35;1mSQL (0.021446)[0m   [0mSHOW KEYS FROM `project`[0m
+  [4;36;1mSQL (0.014389)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (0.018170)[0m   [0mdescribe `projects`[0m
+  [4;36;1mSQL (0.017975)[0m   [0;1mSHOW KEYS FROM `projects`[0m
+  [4;35;1mSQL (0.010187)[0m   [0mSHOW FIELDS FROM `user`[0m
+  [4;36;1mSQL (0.028641)[0m   [0;1mdescribe `user`[0m
+  [4;35;1mSQL (0.028163)[0m   [0mSHOW KEYS FROM `user`[0m
+  [4;36;1mSQL (0.003404)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.101422)[0m   [0mCREATE TABLE `populate_scripts` (`script_name` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.003192)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.005546)[0m   [0mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;36;1mProject Columns (0.039443)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (0.014089)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000988)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000744)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.003206)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001610)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;36;1mSQL (0.001664)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.014550)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.003068)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.026335)[0m   [0mSHOW FIELDS FROM `comment`[0m
+  [4;36;1mSQL (0.020097)[0m   [0;1mdescribe `comment`[0m
+  [4;35;1mSQL (0.029384)[0m   [0mSHOW KEYS FROM `comment`[0m
+  [4;36;1mSQL (0.013999)[0m   [0;1mSHOW FIELDS FROM `notice`[0m
+  [4;35;1mSQL (0.023097)[0m   [0mdescribe `notice`[0m
+  [4;36;1mSQL (0.017062)[0m   [0;1mSHOW KEYS FROM `notice`[0m
+  [4;35;1mSQL (0.007402)[0m   [0mSHOW FIELDS FROM `populate_scripts`[0m
+  [4;36;1mSQL (0.021146)[0m   [0;1mdescribe `populate_scripts`[0m
+  [4;35;1mSQL (0.011821)[0m   [0mSHOW KEYS FROM `populate_scripts`[0m
+  [4;36;1mSQL (0.013022)[0m   [0;1mSHOW FIELDS FROM `project`[0m
+  [4;35;1mSQL (0.016411)[0m   [0mdescribe `project`[0m
+  [4;36;1mSQL (0.016956)[0m   [0;1mSHOW KEYS FROM `project`[0m
+  [4;35;1mSQL (0.008101)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.019664)[0m   [0;1mdescribe `projects`[0m
+  [4;35;1mSQL (0.011417)[0m   [0mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.012901)[0m   [0;1mSHOW FIELDS FROM `user`[0m
+  [4;35;1mSQL (0.020309)[0m   [0mdescribe `user`[0m
+  [4;36;1mSQL (0.029439)[0m   [0;1mSHOW KEYS FROM `user`[0m
+  [4;35;1mSQL (0.003018)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001095)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.003562)[0m   [0mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;36;1mProject Columns (0.006380)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (0.000940)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001327)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000767)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.002835)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002320)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;36;1mSQL (0.001814)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.014231)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.005132)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.041989)[0m   [0mSHOW FIELDS FROM `comment`[0m
+  [4;36;1mSQL (0.016410)[0m   [0;1mdescribe `comment`[0m
+  [4;35;1mSQL (0.023322)[0m   [0mSHOW KEYS FROM `comment`[0m
+  [4;36;1mSQL (0.011346)[0m   [0;1mSHOW FIELDS FROM `notice`[0m
+  [4;35;1mSQL (0.025169)[0m   [0mdescribe `notice`[0m
+  [4;36;1mSQL (0.026268)[0m   [0;1mSHOW KEYS FROM `notice`[0m
+  [4;35;1mSQL (0.008305)[0m   [0mSHOW FIELDS FROM `populate_scripts`[0m
+  [4;36;1mSQL (0.012246)[0m   [0;1mdescribe `populate_scripts`[0m
+  [4;35;1mSQL (0.017885)[0m   [0mSHOW KEYS FROM `populate_scripts`[0m
+  [4;36;1mSQL (0.008527)[0m   [0;1mSHOW FIELDS FROM `project`[0m
+  [4;35;1mSQL (0.023290)[0m   [0mdescribe `project`[0m
+  [4;36;1mSQL (0.017236)[0m   [0;1mSHOW KEYS FROM `project`[0m
+  [4;35;1mSQL (0.009913)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.021228)[0m   [0;1mdescribe `projects`[0m
+  [4;35;1mSQL (0.016653)[0m   [0mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.009891)[0m   [0;1mSHOW FIELDS FROM `user`[0m
+  [4;35;1mSQL (0.018767)[0m   [0mdescribe `user`[0m
+  [4;36;1mSQL (0.015420)[0m   [0;1mSHOW KEYS FROM `user`[0m
+  [4;35;1mSQL (0.002696)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000802)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.003544)[0m   [0mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;36;1mProject Columns (0.009994)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (0.000799)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001051)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000918)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.004425)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001513)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;36;1mSQL (0.001645)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.016504)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.003821)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.090772)[0m   [0mSHOW FIELDS FROM `comment`[0m
+  [4;36;1mSQL (0.050141)[0m   [0;1mdescribe `comment`[0m
+  [4;35;1mSQL (0.089310)[0m   [0mSHOW KEYS FROM `comment`[0m
+  [4;36;1mSQL (0.022748)[0m   [0;1mSHOW FIELDS FROM `notice`[0m
+  [4;35;1mSQL (0.085504)[0m   [0mdescribe `notice`[0m
+  [4;36;1mSQL (0.027236)[0m   [0;1mSHOW KEYS FROM `notice`[0m
+  [4;35;1mSQL (0.007756)[0m   [0mSHOW FIELDS FROM `populate_scripts`[0m
+  [4;36;1mSQL (0.012156)[0m   [0;1mdescribe `populate_scripts`[0m
+  [4;35;1mSQL (0.013513)[0m   [0mSHOW KEYS FROM `populate_scripts`[0m
+  [4;36;1mSQL (0.010567)[0m   [0;1mSHOW FIELDS FROM `project`[0m
+  [4;35;1mSQL (0.020501)[0m   [0mdescribe `project`[0m
+  [4;36;1mSQL (0.016353)[0m   [0;1mSHOW KEYS FROM `project`[0m
+  [4;35;1mSQL (0.012142)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.014645)[0m   [0;1mdescribe `projects`[0m
+  [4;35;1mSQL (0.013575)[0m   [0mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.011631)[0m   [0;1mSHOW FIELDS FROM `user`[0m
+  [4;35;1mSQL (0.017992)[0m   [0mdescribe `user`[0m
+  [4;36;1mSQL (0.099602)[0m   [0;1mSHOW KEYS FROM `user`[0m
+  [4;35;1mSQL (0.030812)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000657)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.003547)[0m   [0mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;36;1mProject Columns (0.013945)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Create (0.011292)[0m   [0mINSERT INTO `projects` (`name`, `display_name`, `discription`, `created_at`, `updated_at`) VALUES('pagosa', 'Pagosa', NULL, '2009-02-08 21:30:56', '2009-02-08 21:30:56')[0m
+  [4;36;1mSQL (0.001055)[0m   [0;1minsert into populate_scripts (script_name) values ('001_default_data.rb')[0m
+  [4;35;1mSQL (0.056465)[0m   [0mCOMMIT[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001075)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000802)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.407092)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.000809)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000876)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.003223)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000674)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000615)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.003143)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.093678)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.277059)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.010240)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002458)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;35;1mSQL (0.001130)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002066)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.105162)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002328)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.130064)[0m   [0mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.016593)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.131118)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002503)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.137188)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(1024) DEFAULT NULL NULL, `name` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.044088)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+  [4;35;1mSQL (0.005685)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002478)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.036836)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.012613)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.015949)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.012878)[0m   [0;1mSHOW FIELDS FROM `notice`[0m
+  [4;35;1mSQL (0.019210)[0m   [0mdescribe `notice`[0m
+  [4;36;1mSQL (0.054967)[0m   [0;1mSHOW KEYS FROM `notice`[0m
+  [4;35;1mSQL (0.007284)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.013218)[0m   [0;1mdescribe `projects`[0m
+  [4;35;1mSQL (0.022080)[0m   [0mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.009502)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.014310)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.014876)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.002051)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.125626)[0m   [0;1mCREATE TABLE `populate_scripts` (`script_name` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000673)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.005669)[0m   [0;1mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;35;1mProject Columns (0.027514)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Create (0.008592)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('pagosa', 'Pagosa', 'Integration Tool', '2009-02-08 21:34:27', '2009-02-08 21:34:27')[0m
+  [4;35;1mProject Create (0.001265)[0m   [0mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('codegen', 'codegen', 'code generator', '2009-02-08 21:34:27', '2009-02-08 21:34:27')[0m
+  [4;36;1mProject Create (0.001114)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('releasetools', 'releasetools', 'Release tools', '2009-02-08 21:34:27', '2009-02-08 21:34:27')[0m
+  [4;35;1mSQL (0.003705)[0m   [0minsert into populate_scripts (script_name) values ('001_default_data.rb')[0m
+  [4;36;1mSQL (0.088668)[0m   [0;1mCOMMIT[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001075)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000765)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.915834)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.000795)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000659)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.004358)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000771)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000659)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.002647)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.296550)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.466950)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.035844)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002460)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;35;1mSQL (0.001139)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002285)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.097445)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.006548)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.199160)[0m   [0mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.015019)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.101049)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.003612)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.136842)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(1024) DEFAULT NULL NULL, `name` varchar(50) DEFAULT NULL NULL, `login` varchar(20) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.043068)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+  [4;35;1mSQL (0.002202)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002836)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.020971)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.014236)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.014021)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.009944)[0m   [0;1mSHOW FIELDS FROM `notice`[0m
+  [4;35;1mSQL (0.021206)[0m   [0mdescribe `notice`[0m
+  [4;36;1mSQL (0.084438)[0m   [0;1mSHOW KEYS FROM `notice`[0m
+  [4;35;1mSQL (0.008457)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.020972)[0m   [0;1mdescribe `projects`[0m
+  [4;35;1mSQL (0.020058)[0m   [0mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.023771)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.014328)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.023859)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.003119)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.270632)[0m   [0;1mCREATE TABLE `populate_scripts` (`script_name` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002966)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.002018)[0m   [0;1mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;35;1mProject Columns (0.040126)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Create (0.007148)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('pagosa', 'Pagosa', 'Integration Tool', '2009-02-08 21:43:37', '2009-02-08 21:43:37')[0m
+  [4;35;1mProject Create (0.001489)[0m   [0mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('codegen', 'codegen', 'code generator', '2009-02-08 21:43:37', '2009-02-08 21:43:37')[0m
+  [4;36;1mProject Create (0.001680)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('releasetools', 'releasetools', 'Release tools', '2009-02-08 21:43:37', '2009-02-08 21:43:37')[0m
+  [4;35;1mSQL (0.064890)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001170)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000799)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.275367)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.000803)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000662)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.003278)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000746)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000798)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.002894)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.212273)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.246577)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.012923)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002182)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;35;1mSQL (0.002156)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001883)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.101775)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002117)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.102270)[0m   [0mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.012186)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.084224)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002551)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.156760)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(1024) DEFAULT NULL NULL, `name` varchar(50) DEFAULT NULL NULL, `login` varchar(20) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.140200)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+  [4;35;1mSQL (0.046752)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002565)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.015682)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.132426)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.012979)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.011866)[0m   [0;1mSHOW FIELDS FROM `notice`[0m
+  [4;35;1mSQL (0.019605)[0m   [0mdescribe `notice`[0m
+  [4;36;1mSQL (0.086247)[0m   [0;1mSHOW KEYS FROM `notice`[0m
+  [4;35;1mSQL (0.011831)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.018095)[0m   [0;1mdescribe `projects`[0m
+  [4;35;1mSQL (0.015237)[0m   [0mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.012217)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.015037)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.020657)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.003516)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.281918)[0m   [0;1mCREATE TABLE `populate_scripts` (`script_name` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002857)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.002486)[0m   [0;1mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;35;1mProject Columns (0.037394)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Create (0.006341)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('pagosa', 'Pagosa', 'Integration Tool', '2009-02-08 21:45:00', '2009-02-08 21:45:00')[0m
+  [4;35;1mProject Create (0.004452)[0m   [0mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('codegen', 'codegen', 'code generator', '2009-02-08 21:45:00', '2009-02-08 21:45:00')[0m
+  [4;36;1mProject Create (0.001431)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('releasetools', 'releasetools', 'Release tools', '2009-02-08 21:45:00', '2009-02-08 21:45:00')[0m
+  [4;35;1mSQL (0.060458)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.006131)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000789)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.321733)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.000742)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000634)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.003114)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000725)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000602)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.002773)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.092769)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.265779)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.028902)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002310)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;35;1mSQL (0.001326)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002022)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.102669)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.003148)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.098224)[0m   [0mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.013522)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.261041)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002696)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.164427)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(1024) DEFAULT NULL NULL, `name` varchar(50) DEFAULT NULL NULL, `login` varchar(20) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.065319)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+  [4;35;1mSQL (0.002877)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.004515)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.018414)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.019124)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.014864)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.013996)[0m   [0;1mSHOW FIELDS FROM `notice`[0m
+  [4;35;1mSQL (0.015819)[0m   [0mdescribe `notice`[0m
+  [4;36;1mSQL (0.022079)[0m   [0;1mSHOW KEYS FROM `notice`[0m
+  [4;35;1mSQL (0.009112)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.017393)[0m   [0;1mdescribe `projects`[0m
+  [4;35;1mSQL (0.013744)[0m   [0mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.012436)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.017638)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.013180)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.003104)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.104774)[0m   [0;1mCREATE TABLE `populate_scripts` (`script_name` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.005205)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.003055)[0m   [0;1mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;35;1mProject Columns (0.022880)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Create (0.010400)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('pagosa', 'Pagosa', 'Integration Tool', '2009-02-08 21:46:50', '2009-02-08 21:46:50')[0m
+  [4;35;1mProject Create (0.005461)[0m   [0mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('codegen', 'codegen', 'code generator', '2009-02-08 21:46:50', '2009-02-08 21:46:50')[0m
+  [4;36;1mProject Create (0.001683)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('releasetools', 'releasetools', 'Release tools', '2009-02-08 21:46:50', '2009-02-08 21:46:50')[0m
+  [4;35;1mSQL (0.059954)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001154)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000756)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.337000)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.000690)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000752)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.003442)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000661)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000726)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.007665)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.109266)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.288802)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.015903)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002351)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001355)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;36;1mSQL (0.001128)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002002)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.096209)[0m   [0;1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.011389)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.095915)[0m   [0;1mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002436)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.113052)[0m   [0;1mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.003159)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.115168)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(50) DEFAULT NULL NULL, `name` varchar(50) DEFAULT NULL NULL, `login` varchar(20) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.051954)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+Migrating to CreateUsers (20090208215122)
+  [4;36;1mSQL (0.001584)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'users' already exists: CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001046)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000833)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.443934)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.000875)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000668)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.003548)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.001168)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000732)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.003041)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.111067)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.277772)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.024061)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003784)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;35;1mSQL (0.001295)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002195)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.275387)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002977)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.098234)[0m   [0mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.016313)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.105526)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.006665)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.130727)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(50) DEFAULT NULL NULL, `name` varchar(50) DEFAULT NULL NULL, `login` varchar(20) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.129979)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+  [4;35;1mSQL (0.001703)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002507)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.019783)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.014667)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.016254)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.009338)[0m   [0;1mSHOW FIELDS FROM `notice`[0m
+  [4;35;1mSQL (0.030170)[0m   [0mdescribe `notice`[0m
+  [4;36;1mSQL (0.021491)[0m   [0;1mSHOW KEYS FROM `notice`[0m
+  [4;35;1mSQL (0.008836)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.017242)[0m   [0;1mdescribe `projects`[0m
+  [4;35;1mSQL (0.025519)[0m   [0mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.008711)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.014567)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.022294)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.004392)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.208290)[0m   [0;1mCREATE TABLE `populate_scripts` (`script_name` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000680)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.002185)[0m   [0;1mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;35;1mProject Columns (0.017059)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Create (0.005370)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('pagosa', 'Pagosa', 'Integration Tool', '2009-02-08 21:56:01', '2009-02-08 21:56:01')[0m
+  [4;35;1mProject Create (0.001851)[0m   [0mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('codegen', 'codegen', 'code generator', '2009-02-08 21:56:01', '2009-02-08 21:56:01')[0m
+  [4;36;1mProject Create (0.003837)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('releasetools', 'releasetools', 'Release tools', '2009-02-08 21:56:01', '2009-02-08 21:56:01')[0m
+  [4;35;1mSQL (0.055830)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001158)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000998)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.410269)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.000723)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000854)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.007754)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000635)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000822)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.003092)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.089324)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.285351)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.012465)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.006516)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;35;1mSQL (0.001406)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001994)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.094881)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001966)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.092241)[0m   [0mCREATE TABLE `notice` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.013204)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.110289)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.005444)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.236522)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(50) DEFAULT NULL NULL, `name` varchar(50) DEFAULT NULL NULL, `login` varchar(20) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.096782)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+  [4;35;1mSQL (0.001634)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.028340)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.017897)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.013572)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.015552)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.011636)[0m   [0;1mSHOW FIELDS FROM `notice`[0m
+  [4;35;1mSQL (0.021913)[0m   [0mdescribe `notice`[0m
+  [4;36;1mSQL (0.021856)[0m   [0;1mSHOW KEYS FROM `notice`[0m
+  [4;35;1mSQL (0.054224)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.020948)[0m   [0;1mdescribe `projects`[0m
+  [4;35;1mSQL (0.012561)[0m   [0mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.007699)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.014084)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.013915)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.003477)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.100921)[0m   [0;1mCREATE TABLE `populate_scripts` (`script_name` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.004703)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.004658)[0m   [0;1mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;35;1mProject Columns (0.022205)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Create (0.005949)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('pagosa', 'Pagosa', 'Integration Tool', '2009-02-08 21:58:14', '2009-02-08 21:58:14')[0m
+  [4;35;1mProject Create (0.000972)[0m   [0mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('codegen', 'codegen', 'code generator', '2009-02-08 21:58:15', '2009-02-08 21:58:15')[0m
+  [4;36;1mProject Create (0.001669)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('releasetools', 'releasetools', 'Release tools', '2009-02-08 21:58:15', '2009-02-08 21:58:15')[0m
+  [4;35;1mUser Columns (0.013686)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Create (0.006449)[0m   [0;1mINSERT INTO `users` (`email`, `name`, `login`, `created_at`, `updated_at`) VALUES('curt.wilhelm@yahoo.com', 'Curt Wilhelm', 'cwilhelm', '2009-02-08 21:58:15', '2009-02-08 21:58:15')[0m
+  [4;35;1mUser Create (0.001077)[0m   [0mINSERT INTO `users` (`email`, `name`, `login`, `created_at`, `updated_at`) VALUES('rtremain@covad.net', 'Russ Tremain', 'rtremain', '2009-02-08 21:58:15', '2009-02-08 21:58:15')[0m
+  [4;36;1mNotice Columns (0.000000)[0m   [0;1mMysql::Error: #42S02Table 'pagosa_development.notices' doesn't exist: SHOW FIELDS FROM `notices`[0m
+  [4;35;1mSQL (0.076430)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000935)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000763)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.565055)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.000647)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000629)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.003100)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000630)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000600)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.002674)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.162257)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.690460)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.017429)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002216)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;35;1mSQL (0.001137)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002111)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.270760)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001965)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.179471)[0m   [0mCREATE TABLE `notices` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.015606)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.167501)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002703)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.260287)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(50) DEFAULT NULL NULL, `name` varchar(50) DEFAULT NULL NULL, `login` varchar(20) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.067293)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+  [4;35;1mSQL (0.001623)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002247)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.013898)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.016650)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.010647)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.008516)[0m   [0;1mSHOW FIELDS FROM `notices`[0m
+  [4;35;1mSQL (0.013829)[0m   [0mdescribe `notices`[0m
+  [4;36;1mSQL (0.059469)[0m   [0;1mSHOW KEYS FROM `notices`[0m
+  [4;35;1mSQL (0.008166)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.014024)[0m   [0;1mdescribe `projects`[0m
+  [4;35;1mSQL (0.011042)[0m   [0mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.009139)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.012618)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.011214)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.003119)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.184203)[0m   [0;1mCREATE TABLE `populate_scripts` (`script_name` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001098)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.004483)[0m   [0;1mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;35;1mProject Columns (0.016677)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Create (0.005106)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('pagosa', 'Pagosa', 'Integration Tool', '2009-02-08 21:59:26', '2009-02-08 21:59:26')[0m
+  [4;35;1mProject Create (0.001342)[0m   [0mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('codegen', 'codegen', 'code generator', '2009-02-08 21:59:26', '2009-02-08 21:59:26')[0m
+  [4;36;1mProject Create (0.001711)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('releasetools', 'releasetools', 'Release tools', '2009-02-08 21:59:26', '2009-02-08 21:59:26')[0m
+  [4;35;1mUser Columns (0.012968)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Create (0.008710)[0m   [0;1mINSERT INTO `users` (`email`, `name`, `login`, `created_at`, `updated_at`) VALUES('curt.wilhelm@yahoo.com', 'Curt Wilhelm', 'cwilhelm', '2009-02-08 21:59:26', '2009-02-08 21:59:26')[0m
+  [4;35;1mUser Create (0.000985)[0m   [0mINSERT INTO `users` (`email`, `name`, `login`, `created_at`, `updated_at`) VALUES('rtremain@covad.net', 'Russ Tremain', 'rtremain', '2009-02-08 21:59:26', '2009-02-08 21:59:26')[0m
+  [4;36;1mNotice Columns (0.009783)[0m   [0;1mSHOW FIELDS FROM `notices`[0m
+  [4;35;1mNotice Create (0.010330)[0m   [0mINSERT INTO `notices` (`subject`, `description`, `user_id`, `project_id`, `created_at`, `updated_at`) VALUES('This is a new Integration for pagosa', 'More data about this integration', 1, 1, '2009-02-08 21:59:27', '2009-02-08 21:59:27')[0m
+  [4;36;1mNotice Create (0.001139)[0m   [0;1mINSERT INTO `notices` (`subject`, `description`, `user_id`, `project_id`, `created_at`, `updated_at`) VALUES('This is a new Integration for codegen', 'More data about this integration', 2, 2, '2009-02-08 21:59:27', '2009-02-08 21:59:27')[0m
+  [4;35;1mSQL (0.000951)[0m   [0minsert into populate_scripts (script_name) values ('001_default_data.rb')[0m
+  [4;36;1mSQL (0.169037)[0m   [0;1mCOMMIT[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-08 15:01:38) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--a776ddba1d5b2a783b33f814855eff4cdf835ec2
+  Parameters: {"controller"=>"home", "action"=>"index"}
+Rendering home/index
+Completed in 0.00809 (123 reqs/sec) | Rendering: 0.00200 (24%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-08 15:01:45) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--a776ddba1d5b2a783b33f814855eff4cdf835ec2
+  Parameters: {"controller"=>"projects", "action"=>"index"}
+  [4;36;1mProject Load (0.063459)[0m   [0;1mSELECT * FROM `projects` [0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Columns (0.018456)[0m   [0mSHOW FIELDS FROM `projects`[0m
+
+
+ActionView::TemplateError (undefined method `discription' for #<Project:0x1c2671b>) on line #16 of projects/index.html.erb:
+13:   <tr>
+14:     <td><%=h project.name %></td>
+15:     <td><%=h project.display_name %></td>
+16:     <td><%=h project.discription %></td>
+17:     <td><%=h project.created_at %></td>
+18:     <td><%=h project.updated_at %></td>
+19:     <td><%= link_to 'Show', project %></td>
+
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/attribute_methods.rb:256:in `method_missing'
+    app/views/projects/index.html.erb:16:in `_run_erb_47app47views47projects47index46html46erb'
+    app/views/projects/index.html.erb:12:in `each'
+    app/views/projects/index.html.erb:12:in `_run_erb_47app47views47projects47index46html46erb'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1108:in `render_for_file'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:865:in `render'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:880:in `render'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:251:in `render_with_a_layout'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:131:in `custom'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `call'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `respond'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `each'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `respond'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/projects_controller.rb:7:in `index'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_with_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_with_rescue'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action_with_caching'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action_with_caching'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_with_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process_with_session_management_support'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    :1:in `start'
+
+Rendering C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-02-08 15:02:00) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--a776ddba1d5b2a783b33f814855eff4cdf835ec2
+  Parameters: {"controller"=>"projects", "action"=>"show", "id"=>"1"}
+  [4;36;1mProject Columns (0.031363)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.079947)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Rendering template within layouts/projects
+Rendering projects/show
+
+
+ActionView::TemplateError (undefined method `discription' for #<Project:0x19401b1>) on line #13 of projects/show.html.erb:
+10: 
+11: <p>
+12:   <b>Discription:</b>
+13:   <%=h @project.discription %>
+14: </p>
+15: 
+16: <p>
+
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/attribute_methods.rb:256:in `method_missing'
+    app/views/projects/show.html.erb:13:in `_run_erb_47app47views47projects47show46html46erb'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1108:in `render_for_file'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:865:in `render'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:880:in `render'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:251:in `render_with_a_layout'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:131:in `custom'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `call'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `respond'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `each'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `respond'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/projects_controller.rb:18:in `show'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_with_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_with_rescue'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action_with_caching'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action_with_caching'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_with_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process_with_session_management_support'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    :1:in `start'
+
+Rendering C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-08 15:02:13) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--a776ddba1d5b2a783b33f814855eff4cdf835ec2
+  Parameters: {"controller"=>"projects", "action"=>"index"}
+  [4;36;1mProject Load (0.014367)[0m   [0;1mSELECT * FROM `projects` [0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Columns (0.009947)[0m   [0mSHOW FIELDS FROM `projects`[0m
+
+
+ActionView::TemplateError (undefined method `discription' for #<Project:0x7ff2aa>) on line #16 of projects/index.html.erb:
+13:   <tr>
+14:     <td><%=h project.name %></td>
+15:     <td><%=h project.display_name %></td>
+16:     <td><%=h project.discription %></td>
+17:     <td><%=h project.created_at %></td>
+18:     <td><%=h project.updated_at %></td>
+19:     <td><%= link_to 'Show', project %></td>
+
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/attribute_methods.rb:256:in `method_missing'
+    app/views/projects/index.html.erb:16:in `_run_erb_47app47views47projects47index46html46erb'
+    app/views/projects/index.html.erb:12:in `each'
+    app/views/projects/index.html.erb:12:in `_run_erb_47app47views47projects47index46html46erb'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1108:in `render_for_file'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:865:in `render'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:880:in `render'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:251:in `render_with_a_layout'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:131:in `custom'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `call'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `respond'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `each'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `respond'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/projects_controller.rb:7:in `index'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_with_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_with_rescue'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action_with_caching'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action_with_caching'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_with_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process_with_session_management_support'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    :1:in `start'
+
+Rendering C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-08 15:03:49) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--a776ddba1d5b2a783b33f814855eff4cdf835ec2
+  Parameters: {"controller"=>"projects", "action"=>"index"}
+  [4;36;1mProject Load (0.003391)[0m   [0;1mSELECT * FROM `projects` [0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Columns (0.007520)[0m   [0mSHOW FIELDS FROM `projects`[0m
+Completed in 0.79159 (1 reqs/sec) | Rendering: 0.74589 (94%) | DB: 0.02086 (2%) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#new (for 127.0.0.1 at 2009-02-08 15:04:00) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"projects", "action"=>"new"}
+  [4;36;1mProject Columns (0.031092)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+Rendering template within layouts/projects
+Rendering projects/new
+Completed in 0.35862 (2 reqs/sec) | Rendering: 0.26380 (73%) | DB: 0.03109 (8%) | 200 OK [http://localhost/projects/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-02-08 15:04:17) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/notice" with {:method=>:get}):
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    :1:in `start'
+
+Rendering C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-02-08 15:04:21) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/notices" with {:method=>:get}):
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    :1:in `start'
+
+Rendering C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing NoticesController#index (for 127.0.0.1 at 2009-02-08 15:07:17) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"notices", "action"=>"index"}
+  [4;35;1mNotice Load (0.006016)[0m   [0mSELECT * FROM `notices` [0m
+Rendering template within layouts/notices
+Rendering notices/index
+  [4;36;1mNotice Columns (0.007317)[0m   [0;1mSHOW FIELDS FROM `notices`[0m
+Completed in 0.16373 (6 reqs/sec) | Rendering: 0.11518 (70%) | DB: 0.01333 (8%) | 200 OK [http://localhost/notices]
+
+
+Processing NoticesController#show (for 127.0.0.1 at 2009-02-08 15:07:22) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"notices", "action"=>"show", "id"=>"1"}
+  [4;35;1mNotice Columns (0.010434)[0m   [0mSHOW FIELDS FROM `notices`[0m
+  [4;36;1mNotice Load (0.010746)[0m   [0;1mSELECT * FROM `notices` WHERE (`notices`.`id` = 1) [0m
+Rendering template within layouts/notices
+Rendering notices/show
+Completed in 0.09713 (10 reqs/sec) | Rendering: 0.03582 (36%) | DB: 0.02118 (21%) | 200 OK [http://localhost/notices/1]
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001047)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000936)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.813445)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.000839)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000635)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.003005)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.013427)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000924)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.003007)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.137709)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.290967)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.009375)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002410)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;35;1mSQL (0.001276)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002422)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.157025)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.003400)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.191634)[0m   [0mCREATE TABLE `notices` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `category_id` bigint(11) DEFAULT NULL NULL, `bug_ids` varchar(255) DEFAULT NULL NULL, `status_id` varchar(1) DEFAULT NULL NULL, `plannded_date` date DEFAULT NULL NULL, `integrated_date` date DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.011808)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.107176)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.003687)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.104339)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(50) DEFAULT NULL NULL, `name` varchar(50) DEFAULT NULL NULL, `login` varchar(20) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.006859)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.330473)[0m   [0mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(50) DEFAULT NULL NULL, `description` varchar(50) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.018477)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.184604)[0m   [0mCREATE TABLE `status` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(10) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.044637)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+  [4;35;1mSQL (0.001814)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.003942)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.038938)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mSQL (0.013859)[0m   [0;1mdescribe `categories`[0m
+  [4;35;1mSQL (0.018607)[0m   [0mSHOW KEYS FROM `categories`[0m
+  [4;36;1mSQL (0.007756)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.019085)[0m   [0mdescribe `comments`[0m
+  [4;36;1mSQL (0.022745)[0m   [0;1mSHOW KEYS FROM `comments`[0m
+  [4;35;1mSQL (0.013395)[0m   [0mSHOW FIELDS FROM `notices`[0m
+  [4;36;1mSQL (0.667767)[0m   [0;1mdescribe `notices`[0m
+  [4;35;1mSQL (0.011535)[0m   [0mSHOW KEYS FROM `notices`[0m
+  [4;36;1mSQL (0.010025)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (0.016476)[0m   [0mdescribe `projects`[0m
+  [4;36;1mSQL (0.014617)[0m   [0;1mSHOW KEYS FROM `projects`[0m
+  [4;35;1mSQL (0.014358)[0m   [0mSHOW FIELDS FROM `status`[0m
+  [4;36;1mSQL (0.678227)[0m   [0;1mdescribe `status`[0m
+  [4;35;1mSQL (0.020233)[0m   [0mSHOW KEYS FROM `status`[0m
+  [4;36;1mSQL (0.036582)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.015077)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.013201)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.006207)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.278705)[0m   [0;1mCREATE TABLE `populate_scripts` (`script_name` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.010223)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.002283)[0m   [0;1mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;35;1mSQL (0.000783)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001088)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000845)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.401890)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.001942)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000759)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.003452)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000833)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000721)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.002996)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.114665)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.355158)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.013691)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002390)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;35;1mSQL (0.001279)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.039940)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.122088)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.007200)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.253150)[0m   [0mCREATE TABLE `notices` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `category_id` bigint(11) DEFAULT NULL NULL, `bug_ids` varchar(255) DEFAULT NULL NULL, `status_id` varchar(1) DEFAULT NULL NULL, `plannded_date` date DEFAULT NULL NULL, `integrated_date` date DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.011052)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.118613)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002698)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.125013)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(50) DEFAULT NULL NULL, `name` varchar(50) DEFAULT NULL NULL, `login` varchar(20) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002429)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.121385)[0m   [0mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(50) DEFAULT NULL NULL, `description` varchar(50) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.019095)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.099344)[0m   [0mCREATE TABLE `status` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(10) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.055218)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+  [4;35;1mSQL (0.003238)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.008527)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.016211)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mSQL (0.013826)[0m   [0;1mdescribe `categories`[0m
+  [4;35;1mSQL (0.023621)[0m   [0mSHOW KEYS FROM `categories`[0m
+  [4;36;1mSQL (0.008859)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.022578)[0m   [0mdescribe `comments`[0m
+  [4;36;1mSQL (0.016638)[0m   [0;1mSHOW KEYS FROM `comments`[0m
+  [4;35;1mSQL (0.013982)[0m   [0mSHOW FIELDS FROM `notices`[0m
+  [4;36;1mSQL (0.017630)[0m   [0;1mdescribe `notices`[0m
+  [4;35;1mSQL (0.020935)[0m   [0mSHOW KEYS FROM `notices`[0m
+  [4;36;1mSQL (0.010347)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (0.012253)[0m   [0mdescribe `projects`[0m
+  [4;36;1mSQL (0.018724)[0m   [0;1mSHOW KEYS FROM `projects`[0m
+  [4;35;1mSQL (0.009425)[0m   [0mSHOW FIELDS FROM `status`[0m
+  [4;36;1mSQL (0.032801)[0m   [0;1mdescribe `status`[0m
+  [4;35;1mSQL (0.019421)[0m   [0mSHOW KEYS FROM `status`[0m
+  [4;36;1mSQL (0.007959)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.033678)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.024433)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.005610)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.101646)[0m   [0;1mCREATE TABLE `populate_scripts` (`script_name` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.011123)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.001989)[0m   [0;1mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;35;1mProject Columns (0.007349)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Create (0.001173)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('pagosa', 'Pagosa', 'Integration Tool', '2009-02-09 01:44:38', '2009-02-09 01:44:38')[0m
+  [4;35;1mProject Create (0.000935)[0m   [0mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('codegen', 'codegen', 'code generator', '2009-02-09 01:44:38', '2009-02-09 01:44:38')[0m
+  [4;36;1mProject Create (0.001484)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('releasetools', 'releasetools', 'Release tools', '2009-02-09 01:44:38', '2009-02-09 01:44:38')[0m
+  [4;35;1mUser Columns (0.012529)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Create (0.000960)[0m   [0;1mINSERT INTO `users` (`email`, `name`, `login`, `created_at`, `updated_at`) VALUES('curt.wilhelm@yahoo.com', 'Curt Wilhelm', 'cwilhelm', '2009-02-09 01:44:38', '2009-02-09 01:44:38')[0m
+  [4;35;1mUser Create (0.000919)[0m   [0mINSERT INTO `users` (`email`, `name`, `login`, `created_at`, `updated_at`) VALUES('rtremain@covad.net', 'Russ Tremain', 'rtremain', '2009-02-09 01:44:38', '2009-02-09 01:44:38')[0m
+  [4;36;1mNotice Columns (0.006899)[0m   [0;1mSHOW FIELDS FROM `notices`[0m
+  [4;35;1mNotice Create (0.001005)[0m   [0mINSERT INTO `notices` (`subject`, `description`, `user_id`, `project_id`, `category_id`, `bug_ids`, `status_id`, `plannded_date`, `integrated_date`, `created_at`, `updated_at`) VALUES('This is a new Integration for pagosa', 'More data about this integration', 1, 1, NULL, NULL, NULL, NULL, NULL, '2009-02-09 01:44:39', '2009-02-09 01:44:39')[0m
+  [4;36;1mNotice Create (0.000947)[0m   [0;1mINSERT INTO `notices` (`subject`, `description`, `user_id`, `project_id`, `category_id`, `bug_ids`, `status_id`, `plannded_date`, `integrated_date`, `created_at`, `updated_at`) VALUES('This is a new Integration for codegen', 'More data about this integration', 2, 2, NULL, NULL, NULL, NULL, NULL, '2009-02-09 01:44:39', '2009-02-09 01:44:39')[0m
+  [4;35;1mSQL (0.038236)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000986)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000795)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.498739)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.000970)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000641)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.003258)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000707)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000815)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.005356)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.096684)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.288219)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.021282)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002285)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;35;1mSQL (0.001251)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.006364)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.098333)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002182)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.115418)[0m   [0mCREATE TABLE `notices` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `category_id` bigint(11) DEFAULT NULL NULL, `bug_ids` varchar(255) DEFAULT NULL NULL, `status_id` varchar(1) DEFAULT NULL NULL, `plannded_date` date DEFAULT NULL NULL, `integrated_date` date DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.018407)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.258273)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002600)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.132288)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(50) DEFAULT NULL NULL, `name` varchar(50) DEFAULT NULL NULL, `login` varchar(20) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.003456)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.120803)[0m   [0mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(50) DEFAULT NULL NULL, `description` varchar(50) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.010132)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.119577)[0m   [0mCREATE TABLE `status` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(10) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.065359)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+  [4;35;1mSQL (0.001653)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.005221)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.009532)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mSQL (0.019286)[0m   [0;1mdescribe `categories`[0m
+  [4;35;1mSQL (0.030260)[0m   [0mSHOW KEYS FROM `categories`[0m
+  [4;36;1mSQL (0.007735)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.021753)[0m   [0mdescribe `comments`[0m
+  [4;36;1mSQL (0.014489)[0m   [0;1mSHOW KEYS FROM `comments`[0m
+  [4;35;1mSQL (0.018130)[0m   [0mSHOW FIELDS FROM `notices`[0m
+  [4;36;1mSQL (0.016281)[0m   [0;1mdescribe `notices`[0m
+  [4;35;1mSQL (0.012960)[0m   [0mSHOW KEYS FROM `notices`[0m
+  [4;36;1mSQL (0.011466)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (0.015012)[0m   [0mdescribe `projects`[0m
+  [4;36;1mSQL (0.010548)[0m   [0;1mSHOW KEYS FROM `projects`[0m
+  [4;35;1mSQL (0.024328)[0m   [0mSHOW FIELDS FROM `status`[0m
+  [4;36;1mSQL (0.017358)[0m   [0;1mdescribe `status`[0m
+  [4;35;1mSQL (0.017895)[0m   [0mSHOW KEYS FROM `status`[0m
+  [4;36;1mSQL (0.032459)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.017125)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.015045)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.006207)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.110393)[0m   [0;1mCREATE TABLE `populate_scripts` (`script_name` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.010579)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.002250)[0m   [0;1mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;35;1mProject Columns (0.006789)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Create (0.000965)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('pagosa', 'Pagosa', 'Integration Tool', '2009-02-09 01:46:19', '2009-02-09 01:46:19')[0m
+  [4;35;1mProject Create (0.001159)[0m   [0mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('codegen', 'codegen', 'code generator', '2009-02-09 01:46:19', '2009-02-09 01:46:19')[0m
+  [4;36;1mProject Create (0.001699)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('releasetools', 'releasetools', 'Release tools', '2009-02-09 01:46:19', '2009-02-09 01:46:19')[0m
+  [4;35;1mUser Columns (0.007749)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Create (0.001762)[0m   [0;1mINSERT INTO `users` (`email`, `name`, `login`, `created_at`, `updated_at`) VALUES('curt.wilhelm@yahoo.com', 'Curt Wilhelm', 'cwilhelm', '2009-02-09 01:46:19', '2009-02-09 01:46:19')[0m
+  [4;35;1mUser Create (0.000919)[0m   [0mINSERT INTO `users` (`email`, `name`, `login`, `created_at`, `updated_at`) VALUES('rtremain@covad.net', 'Russ Tremain', 'rtremain', '2009-02-09 01:46:19', '2009-02-09 01:46:19')[0m
+  [4;36;1mNotice Columns (0.006620)[0m   [0;1mSHOW FIELDS FROM `notices`[0m
+  [4;35;1mNotice Create (0.002171)[0m   [0mINSERT INTO `notices` (`subject`, `description`, `user_id`, `project_id`, `category_id`, `bug_ids`, `status_id`, `plannded_date`, `integrated_date`, `created_at`, `updated_at`) VALUES('This is a new Integration for pagosa', 'More data about this integration', 1, 1, NULL, NULL, NULL, NULL, NULL, '2009-02-09 01:46:19', '2009-02-09 01:46:19')[0m
+  [4;36;1mNotice Create (0.000951)[0m   [0;1mINSERT INTO `notices` (`subject`, `description`, `user_id`, `project_id`, `category_id`, `bug_ids`, `status_id`, `plannded_date`, `integrated_date`, `created_at`, `updated_at`) VALUES('This is a new Integration for codegen', 'More data about this integration', 2, 2, NULL, NULL, NULL, NULL, NULL, '2009-02-09 01:46:19', '2009-02-09 01:46:19')[0m
+  [4;35;1mCategory Columns (0.007307)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mCategory Create (0.006194)[0m   [0;1mINSERT INTO `categories` (`name`, `description`, `project_id`, `created_at`, `updated_at`) VALUES('Tool', 'Tool Stuff', 1, '2009-02-09 01:46:19', '2009-02-09 01:46:19')[0m
+  [4;35;1mCategory Create (0.001094)[0m   [0mINSERT INTO `categories` (`name`, `description`, `project_id`, `created_at`, `updated_at`) VALUES('Tool', 'Tool Stuff', 2, '2009-02-09 01:46:19', '2009-02-09 01:46:19')[0m
+  [4;36;1mCategory Create (0.001027)[0m   [0;1mINSERT INTO `categories` (`name`, `description`, `project_id`, `created_at`, `updated_at`) VALUES('Web', 'Web site', 2, '2009-02-09 01:46:20', '2009-02-09 01:46:20')[0m
+  [4;35;1mStatus Columns (0.000000)[0m   [0mMysql::Error: #42S02Table 'pagosa_development.statuses' doesn't exist: SHOW FIELDS FROM `statuses`[0m
+  [4;36;1mSQL (0.042677)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001078)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000777)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.427074)[0m   [0;1mDROP DATABASE IF EXISTS `pagosa_development`[0m
+  [4;35;1mSQL (0.000733)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.005421)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.003979)[0m   [0mCREATE DATABASE `pagosa_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000676)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000615)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.009957)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.147105)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.470072)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.011222)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.007078)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to InitialSchema (20090208170122)
+  [4;35;1mSQL (0.001123)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001878)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.117168)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comment` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `notice_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002250)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.101458)[0m   [0mCREATE TABLE `notices` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `user_id` bigint(11) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `category_id` bigint(11) DEFAULT NULL NULL, `bug_ids` varchar(255) DEFAULT NULL NULL, `status_id` varchar(1) DEFAULT NULL NULL, `plannded_date` date DEFAULT NULL NULL, `integrated_date` date DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.010981)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.106173)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(32) DEFAULT NULL NULL, `display_name` varchar(64) DEFAULT NULL NULL, `description` varchar(1024) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.003189)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.104588)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(50) DEFAULT NULL NULL, `name` varchar(50) DEFAULT NULL NULL, `login` varchar(20) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002310)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.123725)[0m   [0mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(50) DEFAULT NULL NULL, `description` varchar(50) DEFAULT NULL NULL, `project_id` bigint(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.014004)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.166801)[0m   [0mCREATE TABLE `statuses` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(10) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.054314)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090208170122')[0m
+  [4;35;1mSQL (0.032356)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.033202)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.008663)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mSQL (0.013714)[0m   [0;1mdescribe `categories`[0m
+  [4;35;1mSQL (0.075183)[0m   [0mSHOW KEYS FROM `categories`[0m
+  [4;36;1mSQL (0.012496)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.014908)[0m   [0mdescribe `comments`[0m
+  [4;36;1mSQL (0.014770)[0m   [0;1mSHOW KEYS FROM `comments`[0m
+  [4;35;1mSQL (0.017989)[0m   [0mSHOW FIELDS FROM `notices`[0m
+  [4;36;1mSQL (0.016404)[0m   [0;1mdescribe `notices`[0m
+  [4;35;1mSQL (0.016034)[0m   [0mSHOW KEYS FROM `notices`[0m
+  [4;36;1mSQL (0.007158)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (0.024257)[0m   [0mdescribe `projects`[0m
+  [4;36;1mSQL (0.011782)[0m   [0;1mSHOW KEYS FROM `projects`[0m
+  [4;35;1mSQL (0.009459)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+  [4;36;1mSQL (0.020776)[0m   [0;1mdescribe `statuses`[0m
+  [4;35;1mSQL (0.025504)[0m   [0mSHOW KEYS FROM `statuses`[0m
+  [4;36;1mSQL (0.027173)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.020102)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.019958)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.005438)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.144905)[0m   [0;1mCREATE TABLE `populate_scripts` (`script_name` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.014183)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.002223)[0m   [0;1mselect script_name from populate_scripts where script_name = '001_default_data.rb'[0m
+  [4;35;1mProject Columns (0.007307)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Create (0.000989)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('pagosa', 'Pagosa', 'Integration Tool', '2009-02-09 01:48:51', '2009-02-09 01:48:51')[0m
+  [4;35;1mProject Create (0.000935)[0m   [0mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('codegen', 'codegen', 'code generator', '2009-02-09 01:48:51', '2009-02-09 01:48:51')[0m
+  [4;36;1mProject Create (0.001062)[0m   [0;1mINSERT INTO `projects` (`name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES('releasetools', 'releasetools', 'Release tools', '2009-02-09 01:48:52', '2009-02-09 01:48:52')[0m
+  [4;35;1mUser Columns (0.010869)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Create (0.000945)[0m   [0;1mINSERT INTO `users` (`email`, `name`, `login`, `created_at`, `updated_at`) VALUES('curt.wilhelm@yahoo.com', 'Curt Wilhelm', 'cwilhelm', '2009-02-09 01:48:52', '2009-02-09 01:48:52')[0m
+  [4;35;1mUser Create (0.000928)[0m   [0mINSERT INTO `users` (`email`, `name`, `login`, `created_at`, `updated_at`) VALUES('rtremain@covad.net', 'Russ Tremain', 'rtremain', '2009-02-09 01:48:52', '2009-02-09 01:48:52')[0m
+  [4;36;1mNotice Columns (0.006770)[0m   [0;1mSHOW FIELDS FROM `notices`[0m
+  [4;35;1mNotice Create (0.001614)[0m   [0mINSERT INTO `notices` (`subject`, `description`, `user_id`, `project_id`, `category_id`, `bug_ids`, `status_id`, `plannded_date`, `integrated_date`, `created_at`, `updated_at`) VALUES('This is a new Integration for pagosa', 'More data about this integration', 1, 1, NULL, NULL, NULL, NULL, NULL, '2009-02-09 01:48:52', '2009-02-09 01:48:52')[0m
+  [4;36;1mNotice Create (0.001040)[0m   [0;1mINSERT INTO `notices` (`subject`, `description`, `user_id`, `project_id`, `category_id`, `bug_ids`, `status_id`, `plannded_date`, `integrated_date`, `created_at`, `updated_at`) VALUES('This is a new Integration for codegen', 'More data about this integration', 2, 2, NULL, NULL, NULL, NULL, NULL, '2009-02-09 01:48:52', '2009-02-09 01:48:52')[0m
+  [4;35;1mCategory Columns (0.005915)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mCategory Create (0.006440)[0m   [0;1mINSERT INTO `categories` (`name`, `description`, `project_id`, `created_at`, `updated_at`) VALUES('Tool', 'Tool Stuff', 1, '2009-02-09 01:48:52', '2009-02-09 01:48:52')[0m
+  [4;35;1mCategory Create (0.000922)[0m   [0mINSERT INTO `categories` (`name`, `description`, `project_id`, `created_at`, `updated_at`) VALUES('Tool', 'Tool Stuff', 2, '2009-02-09 01:48:52', '2009-02-09 01:48:52')[0m
+  [4;36;1mCategory Create (0.001044)[0m   [0;1mINSERT INTO `categories` (`name`, `description`, `project_id`, `created_at`, `updated_at`) VALUES('Web', 'Web site', 2, '2009-02-09 01:48:52', '2009-02-09 01:48:52')[0m
+  [4;35;1mStatus Columns (0.005168)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+  [4;36;1mStatus Create (0.006034)[0m   [0;1mINSERT INTO `statuses` (`name`) VALUES('Open')[0m
+  [4;35;1mStatus Create (0.001150)[0m   [0mINSERT INTO `statuses` (`name`) VALUES('Closed')[0m
+  [4;36;1mStatus Create (0.001346)[0m   [0;1mINSERT INTO `statuses` (`name`) VALUES('Draft')[0m
+  [4;35;1mStatus Create (0.001417)[0m   [0mINSERT INTO `statuses` (`name`) VALUES('Planned')[0m
+  [4;36;1mStatus Create (0.005500)[0m   [0;1mINSERT INTO `statuses` (`name`) VALUES('Integrated')[0m
+  [4;35;1mSQL (0.001933)[0m   [0minsert into populate_scripts (script_name) values ('001_default_data.rb')[0m
+  [4;36;1mSQL (0.163361)[0m   [0;1mCOMMIT[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-08 18:49:23) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"home", "action"=>"index"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000823)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000739)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering home/index
+Completed in 0.03240 (30 reqs/sec) | Rendering: 0.02176 (67%) | DB: 0.00156 (4%) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-08 18:49:29) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"projects", "action"=>"index"}
+  [4;36;1mProject Load (0.028027)[0m   [0;1mSELECT * FROM `projects` [0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Columns (0.013766)[0m   [0mSHOW FIELDS FROM `projects`[0m
+Completed in 0.42008 (2 reqs/sec) | Rendering: 0.35811 (85%) | DB: 0.04179 (9%) | 200 OK [http://localhost/projects]
+
+
+Processing NoticesController#index (for 127.0.0.1 at 2009-02-08 18:49:38) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"notices", "action"=>"index"}
+  [4;36;1mNotice Load (0.025837)[0m   [0;1mSELECT * FROM `notices` [0m
+Rendering template within layouts/notices
+Rendering notices/index
+  [4;35;1mNotice Columns (0.028819)[0m   [0mSHOW FIELDS FROM `notices`[0m
+Completed in 0.21269 (4 reqs/sec) | Rendering: 0.10275 (48%) | DB: 0.05466 (25%) | 200 OK [http://localhost/notices]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-02-08 18:49:43) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"users", "action"=>"index"}
+
+
+NameError (uninitialized constant UsersController::Users):
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:492:in `const_missing'
+    /app/controllers/users_controller.rb:5:in `index'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_with_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_with_rescue'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action_with_caching'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action_with_caching'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_with_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process_with_session_management_support'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    :1:in `start'
+
+Rendering C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-02-08 18:49:50) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/user" with {:method=>:get}):
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    :1:in `start'
+
+Rendering C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-02-08 18:49:54) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"users", "action"=>"index"}
+
+
+NameError (uninitialized constant UsersController::Users):
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:492:in `const_missing'
+    /app/controllers/users_controller.rb:5:in `index'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_with_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_with_rescue'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action_with_caching'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action_with_caching'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_with_filters'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process_with_session_management_support'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    :1:in `start'
+
+Rendering C:/Program Files/NetBeans 6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;36;1mSQL (0.111505)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000863)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-09 12:08:54) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"home", "action"=>"index"}
+Rendering home/index
+Completed in 0.63015 (1 reqs/sec) | Rendering: 0.06746 (10%) | DB: 0.11237 (17%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-09 12:18:54) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"home", "action"=>"index"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.001053)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000859)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering home/index
+Completed in 0.02503 (39 reqs/sec) | Rendering: 0.01409 (56%) | DB: 0.00191 (7%) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-09 12:18:56) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"projects", "action"=>"index"}
+  [4;36;1mProject Load (0.190634)[0m   [0;1mSELECT * FROM `projects` [0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Columns (0.304184)[0m   [0mSHOW FIELDS FROM `projects`[0m
+Completed in 0.94859 (1 reqs/sec) | Rendering: 0.41794 (44%) | DB: 0.49482 (52%) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-09 12:19:04) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"projects", "action"=>"index"}
+  [4;36;1mProject Load (0.003942)[0m   [0;1mSELECT * FROM `projects` [0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Columns (0.032227)[0m   [0mSHOW FIELDS FROM `projects`[0m
+Completed in 0.14862 (6 reqs/sec) | Rendering: 0.06728 (45%) | DB: 0.03617 (24%) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-02-09 12:19:08) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"projects", "action"=>"show", "id"=>"1"}
+  [4;36;1mProject Columns (0.015362)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.228042)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Rendering template within layouts/projects
+Rendering projects/show
+Completed in 0.40204 (2 reqs/sec) | Rendering: 0.11514 (28%) | DB: 0.24340 (60%) | 200 OK [http://localhost/projects/1]
+
+
+Processing ProjectsController#edit (for 127.0.0.1 at 2009-02-09 12:19:11) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"projects", "action"=>"edit", "id"=>"1"}
+  [4;36;1mProject Columns (0.010250)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.270050)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Rendering template within layouts/projects
+Rendering projects/edit
+Completed in 0.52791 (1 reqs/sec) | Rendering: 0.21881 (41%) | DB: 0.28030 (53%) | 200 OK [http://localhost/projects/1/edit]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-09 12:19:14) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"projects", "action"=>"index"}
+  [4;36;1mProject Load (0.014338)[0m   [0;1mSELECT * FROM `projects` [0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Columns (0.016318)[0m   [0mSHOW FIELDS FROM `projects`[0m
+Completed in 0.38667 (2 reqs/sec) | Rendering: 0.14409 (37%) | DB: 0.03066 (7%) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#edit (for 127.0.0.1 at 2009-02-09 12:19:16) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"projects", "action"=>"edit", "id"=>"2"}
+  [4;36;1mProject Columns (0.018978)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.007992)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/projects
+Rendering projects/edit
+Completed in 0.17227 (5 reqs/sec) | Rendering: 0.11517 (66%) | DB: 0.02697 (15%) | 200 OK [http://localhost/projects/2/edit]
+
+
+Processing ProjectsController#new (for 127.0.0.1 at 2009-02-09 12:19:23) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"projects", "action"=>"new"}
+  [4;36;1mProject Columns (0.009071)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+Rendering template within layouts/projects
+Rendering projects/new
+Completed in 0.21079 (4 reqs/sec) | Rendering: 0.16822 (79%) | DB: 0.00907 (4%) | 200 OK [http://localhost/projects/new]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-09 12:19:27) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZTgyNmZiNTgxYjA4MTY0NWVk
+N2NlMWUxZmI0Y2YxNTU=--8352397d9e20f7b862e78e8c22ff136bf85d8374
+  Parameters: {"controller"=>"projects", "action"=>"index"}
+  [4;35;1mProject Load (0.010730)[0m   [0mSELECT * FROM `projects` [0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;36;1mProject Columns (0.011599)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+Completed in 0.10793 (9 reqs/sec) | Rendering: 0.04806 (44%) | DB: 0.02233 (20%) | 200 OK [http://localhost/projects]
