@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20090208170122) do
     t.string   "name",        :limit => 50
     t.string   "description", :limit => 50
     t.integer  "project_id",  :limit => 11
+    t.integer  "user_id",     :limit => 11
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,6 +28,10 @@ ActiveRecord::Schema.define(:version => 20090208170122) do
     t.datetime "updated_at"
   end
 
+  create_table "impacts", :force => true do |t|
+    t.string "name", :limit => 10
+  end
+
   create_table "notices", :force => true do |t|
     t.string   "subject"
     t.string   "description",     :limit => 1024
@@ -35,6 +40,8 @@ ActiveRecord::Schema.define(:version => 20090208170122) do
     t.integer  "category_id",     :limit => 11
     t.string   "bug_ids"
     t.string   "status_id",       :limit => 1
+    t.integer  "impact_id",       :limit => 11
+    t.integer  "release_id",      :limit => 11
     t.date     "plannded_date"
     t.date     "integrated_date"
     t.datetime "created_at"
@@ -45,6 +52,17 @@ ActiveRecord::Schema.define(:version => 20090208170122) do
     t.string   "name",         :limit => 32
     t.string   "display_name", :limit => 64
     t.string   "description",  :limit => 1024
+    t.integer  "user_id",      :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "releases", :force => true do |t|
+    t.string   "name",        :limit => 20
+    t.string   "description", :limit => 70
+    t.string   "version",     :limit => 20
+    t.integer  "project_id",  :limit => 11
+    t.integer  "user_id",     :limit => 11
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -26,13 +26,21 @@ Notice.create!(
    :subject => "This is a new Integration for pagosa",
    :description => "More data about this integration",
    :project_id => 1,
-   :user_id => 1
+   :user_id => 1,
+   :category_id => 1,
+   :status_id => 1,
+   :impact_id =>1,
+   :release_id =>1
 )
 Notice.create!(
    :subject => "This is a new Integration for codegen",
    :description => "More data about this integration",
    :project_id => 2,
-   :user_id => 2
+   :user_id => 2,
+   :category_id => 2,
+   :status_id => 3,
+   :impact_id => 2,
+   :release_id =>1
 )
 
 Category.create!(
@@ -68,3 +76,10 @@ Status.create!(
 Status.create!(
   :name => "Integrated"
 )
+
+Impact.create!(
+  :name => "High"
+)
+Impact.create!(:name => "Low")
+
+Release.create!(:name => "codename",:description => "first release", :version=>"1.0")
