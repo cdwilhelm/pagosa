@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20090208170122) do
     t.string   "status_id",       :limit => 1
     t.integer  "impact_id",       :limit => 11
     t.integer  "release_id",      :limit => 11
-    t.date     "plannded_date"
+    t.date     "planned_date"
     t.date     "integrated_date"
     t.datetime "created_at"
     t.datetime "updated_at"
