@@ -1,0 +1,27 @@
+<% form_for(@users) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :login %><br />
+    <%= f.text_field :login %>
+  </p
+ 
+  <p>
+    <% if @users.id %>
+      <%= f.submit "Update" %>
+    <%else%>
+      <%= f.submit "Create" %>
+    <%end%>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @users %> |
+<%= link_to 'Back', users_path %>

@@ -1,0 +1,54 @@
+<% form_for(@notice) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :project_id %><br />
+    <%= f.text_field :project_id %>
+  </p>
+    <p>
+    <%= f.label :impact_id %><br />
+    <%= f.text_field :impact_id %>
+  </p>
+    <p>
+    <%= f.label :category_id %><br />
+    <%= f.text_field :category_id %>
+  </p>
+    <p>
+    <%= f.label :release_id %><br />
+    <%= f.text_field :release_id %>
+  </p>
+    <p>
+    <%= f.label :status_id %><br />
+    <%= f.text_field :status_id %>
+  </p>
+  <p>
+    <%= f.label :created_at %><br />
+    <%= f.datetime_select :created_at %>
+  </p>
+  <p>
+    <%= f.label :updated_at %><br />
+    <%= f.datetime_select :updated_at %>
+  </p>
+  <p>
+    <% if @notice.id %>
+      <%= f.submit "Update" %>
+    <%else%>
+      <%= f.submit "Create" %>
+    <%end%>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @notice %> |
+<%= link_to 'Back', notices_path %>

@@ -1,24 +1,2 @@
-<h1>Editing users</h1>
-
-<% form_for(@users) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :login %><br />
-    <%= f.text_field :login %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @users %> |
-<%= link_to 'Back', users_path %>
+<h1>Edit Users </h1>
+<%=render :partial => 'form' %>

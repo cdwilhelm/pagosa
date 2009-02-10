@@ -13,7 +13,7 @@
     <td><%=h users.email %></td>
     <td><%=h users.login %></td>
     <td><%= link_to 'Show', users %></td>
-    <td><%= link_to 'Edit', edit_users_path(users) %></td>
+    <td><%= link_to 'Edit', edit_user_path(users) %></td>
     <td><%= link_to 'Destroy', users, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -21,4 +21,4 @@
 
 <br />
 
-<%= link_to 'New users', new_users_path %>
+<%= link_to 'New users', new_user_path %>

@@ -10,24 +10,33 @@
 
 <p>
   <b>User:</b>
-  <%=h @notice.user_id %>
+  <%=h @notice.user.name %>
 </p>
 
 <p>
   <b>Project:</b>
-  <%=h @notice.project_id %>
+  <%=h @notice.project.name %>
 </p>
 
 <p>
-  <b>Created at:</b>
-  <%=h @notice.created_at %>
+  <b>Category:</b>
+  <%=h @notice.category.name %>
 </p>
 
 <p>
-  <b>Updated at:</b>
-  <%=h @notice.updated_at %>
+  <b>Status:</b>
+  <%=h @notice.status.name %>
 </p>
 
+<p>
+  <b>Impact:</b>
+  <%=h @notice.impact.name %>
+</p>
+
+<p>
+  <b>release:</b>
+  <%=h @notice.release.name %>
+</p>
 
 <%= link_to 'Edit', edit_notice_path(@notice) %> |
 <%= link_to 'Back', notices_path %>
