@@ -1,0 +1,20 @@
+<p>
+  <strong>Actions</strong>
+</p>
+<ul>
+  <% if @project %>
+    <li><%=link_to "New Notice", :controller=> "notices", :action=>"new", :id=>@project %>  </li>
+    <li><%= link_to  "Show Notices", :controller=> "notices", :action=> "index", :id=>@project%></li>
+    <li><%= link_to  "Edit", :controller=> "projects", :action =>"edit" , :id=>@project%></li>
+  <%end%>
+</ul>
+<p>
+  <strong>Management</strong>
+</p>
+<ul>
+  <li><%= link_to  "Show Projects", :controller=> "home"%></li>
+  <li><a href="#">Categories</a></li>
+  <li><a href="#">Releases</a></li>
+</ul>
+
+

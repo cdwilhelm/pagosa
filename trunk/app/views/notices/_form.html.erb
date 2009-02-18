@@ -3,43 +3,46 @@
 
   <p>
     <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
+    <%= f.text_field :subject, :size=> 80 %>
   </p>
   <p>
     <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.text_area :description, :rows => 4, :columns => 80 %>
   </p>
   <p>
     <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
+    <%= @notice.user.name %>
+    <%= f.hidden_field :user_id%>
   </p>
   <p>
     <%= f.label :project_id %><br />
-    <%= f.text_field :project_id %>
+    <%= @notice.project.name %>
+    <%= f.hidden_field :project_id %>
   </p>
-    <p>
+  <p>
     <%= f.label :impact_id %><br />
-    <%= f.text_field :impact_id %>
+    <%= f.select :impact_id, @impacts %>
   </p>
-    <p>
+  <p>
     <%= f.label :category_id %><br />
-    <%= f.text_field :category_id %>
+    <%= f.select :category_id, @categories %>
   </p>
-    <p>
+  <p>
     <%= f.label :release_id %><br />
-    <%= f.text_field :release_id %>
+    <%= f.select :release_id, @releases %>
   </p>
-    <p>
+  <p>
     <%= f.label :status_id %><br />
-    <%= f.text_field :status_id %>
+    <%= f.select :status_id, @statuses %>
+  </p>
+
+  <p>
+    <%= f.label :planned_date %><br />
+    <%= f.text_field :planned_date %>
   </p>
   <p>
-    <%= f.label :created_at %><br />
-    <%= f.datetime_select :created_at %>
-  </p>
-  <p>
-    <%= f.label :updated_at %><br />
-    <%= f.datetime_select :updated_at %>
+    <%= f.label :integrated_date %><br />
+    <%= f.text_field :integrated_date%>
   </p>
   <p>
     <% if @notice.id %>
@@ -49,6 +52,3 @@
     <%end%>
   </p>
 <% end %>
-
-<%= link_to 'Show', @notice %> |
-<%= link_to 'Back', notices_path %>

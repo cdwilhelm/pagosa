@@ -82,4 +82,6 @@ Impact.create!(
 )
 Impact.create!(:name => "Low")
 
-Release.create!(:name => "codename",:description => "first release", :version=>"1.0")
+Release.create!(:project_id=>1,:name => "codename",:description => "first release", :version=>"1.0")
+Release.create!(:project_id=>2,:name => "codename",:description => "first release", :version=>"1.0")
+Release.create!(:project_id=>3,:name => "codename",:description => "first release", :version=>"1.0")

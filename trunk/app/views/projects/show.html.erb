@@ -1,6 +1,14 @@
+<%content_for :sidebar do%>
+  <%= render :partial=>'sidebars/projects'%>
+  <% @project %>
+<%end%>
+
+<p style="color: green"><%= flash[:notice] %></p>
+<% form_for(@project) do |f| %>
 <p>
   <b>Name:</b>
   <%=h @project.name %>
+  <%= f.hidden_field :id %>
 </p>
 
 <p>
@@ -9,7 +17,7 @@
 </p>
 
 <p>
-  <b>Discription:</b>
+  <b>Description:</b>
   <%=h @project.description %>
 </p>
 
@@ -22,7 +30,4 @@
   <b>Updated at:</b>
   <%=h @project.updated_at %>
 </p>
-
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%end%>

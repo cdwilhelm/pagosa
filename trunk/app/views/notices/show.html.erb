@@ -1,42 +1,46 @@
-<p>
-  <b>Subject:</b>
-  <%=h @notice.subject %>
-</p>
+<%content_for :sidebar do%>
+  <%= render :partial=>'sidebars/notices'%>
+<%end%>
+<p style="color: green"><%= flash[:notice] %></p>
+<% form_for(@notice) do |f| %>
+  <p>
+    <b>Subject:</b>
+    <%=h @notice.subject %>
+  </p>
 
-<p>
-  <b>Description:</b>
-  <%=h @notice.description %>
-</p>
+  <p>
+    <b>Description:</b>
+    <%=h @notice.description %>
+  </p>
 
-<p>
-  <b>User:</b>
-  <%=h @notice.user.name %>
-</p>
+  <p>
+    <b>User:</b>
+    <%=h @notice.user.name %>
+  </p>
 
-<p>
-  <b>Project:</b>
-  <%=h @notice.project.name %>
-</p>
+  <p>
+    <b>Project:</b>
+    <%=h @notice.project.name %>
+    <%= f.hidden_field :project_id %>
+  </p>
 
-<p>
-  <b>Category:</b>
-  <%=h @notice.category.name %>
-</p>
+  <p>
+    <b>Category:</b>
+    <%=h @notice.category.name %>
+  </p>
 
-<p>
-  <b>Status:</b>
-  <%=h @notice.status.name %>
-</p>
+  <p>
+    <b>Status:</b>
+    <%=h @notice.status.name %>
+  </p>
 
-<p>
-  <b>Impact:</b>
-  <%=h @notice.impact.name %>
-</p>
+  <p>
+    <b>Impact:</b>
+    <%=h @notice.impact.name %>
+  </p>
 
-<p>
-  <b>release:</b>
-  <%=h @notice.release.name %>
-</p>
-
-<%= link_to 'Edit', edit_notice_path(@notice) %> |
-<%= link_to 'Back', notices_path %>
+  <p>
+    <b>release:</b>
+    <%=h @notice.release.name %>
+  </p>
+<%end%>

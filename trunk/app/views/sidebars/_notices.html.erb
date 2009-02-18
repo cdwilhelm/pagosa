@@ -1,0 +1,17 @@
+<strong>Actions</strong>
+<ul>
+  <li><%=link_to "New Notice", :controller=> "notices", :action=>"new", :id=>@project %>  </li>
+  <%if @notice %>
+    <li><%=link_to "Edit", :controller=> "notices", :action=>"edit", :id=>@notice %>  </li>
+    <li><a href="">Delete</a></li>
+  <%end%>
+  <li><%=link_to  "Show All", :controller=> "notices", :action => "index",:id=>@project %></li>
+
+</ul>
+
+<strong>Management</strong>
+<ul>
+  <li><a href="#">Project</a></li>
+  <li><a href="#">Categories</a></li>
+  <li><a href="#">Releases</a></li>
+</ul>

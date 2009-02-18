@@ -2,7 +2,8 @@ class NoticesController < ApplicationController
   # GET /notices
   # GET /notices.xml
   def index
-    @notices = Notice.find(:all)
+    @notices = Notice.find(:all, :conditions => {:project_id => params[:id]},:order => "id" )
+    @project = Project.find(:all,:conditions => {:id => params[:id]})
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class NoticesController < ApplicationController
   # GET /notices/1.xml
   def show
     @notice = Notice.find(params[:id])
+    @project = @notice.project
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +27,14 @@ class NoticesController < ApplicationController
   # GET /notices/new.xml
   def new
     @notice = Notice.new
+    @notice.project_id = params[:id]
+    @project = Project.find(:all,:conditions => {:id => @notice.project_id})
+    @notice.user_id =1
+
+    @categories = Category.find(:all, :conditions => {:project_id => @notice.project_id},:order => "name" ).map {|u| [u.name, u.id] }
+    @releases = Release.find(:all, :conditions => {:project_id => @notice.project_id},:order => "name" ).map {|u| [u.name, u.id] }
+    @impacts =  Impact.find(:all,:order => "name" ).map {|u| [u.name, u.id] }
+    @statuses = Status.find(:all,:order => "name" ).map {|u| [u.name, u.id] }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +45,19 @@ class NoticesController < ApplicationController
   # GET /notices/1/edit
   def edit
     @notice = Notice.find(params[:id])
+
+    @project = Project.find(:all,:conditions => {:id => @notice.project_id})
+    @categories = Category.find(:all, :conditions => {:project_id => @notice.project_id},:order => "name" ).map {|u| [u.name, u.id] }
+    @releases = Release.find(:all, :conditions => {:project_id => @notice.project_id},:order => "name" ).map {|u| [u.name, u.id] }
+    @impacts =  Impact.find(:all,:order => "name" ).map {|u| [u.name, u.id] }
+    @statuses = Status.find(:all,:order => "name" ).map {|u| [u.name, u.id] }
   end
 
   # POST /notices
   # POST /notices.xml
   def create
     @notice = Notice.new(params[:notice])
+    @notice.user_id=1
 
     respond_to do |format|
       if @notice.save
