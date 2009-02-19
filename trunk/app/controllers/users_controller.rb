@@ -1,85 +1,40 @@
 class UsersController < ApplicationController
-  # GET /users
-  # GET /users.xml
+
+  def add_user
+    @user = User.new(params[:user])
+    if request.post? and @user.save
+      flash.now[:notice] = "User #{@user.name} created"
+      @user = User.new
+      redirect_to(:action => "login" )
+    end
+  end
+
+  def login
+    session[:user_id] = nil
+    if request.post?
+      user = User.authenticate(params[:login], params[:password])
+      if user
+        session[:user_id] = user.id
+        redirect_to(:controller=>"home",:action => "index" )
+      else
+        flash.now[:notice] = "Invalid user/password combination"
+      end
+    end
+  end
+
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "Logged out"
+    redirect_to(:action => "login" )
+  end
+
   def index
-    @users = User.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @users }
-    end
   end
 
-  # GET /users/1
-  # GET /users/1.xml
-  def show
-    @users = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @users }
-    end
+  def delete_user
   end
 
-  # GET /users/new
-  # GET /users/new.xml
-  def new
-    @users = User.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @users }
-    end
+  def list_users
   end
 
-  # GET /users/1/edit
-  def edit
-    @users = User.find(params[:id])
-  end
-
-  # POST /users
-  # POST /users.xml
-  def create
-    @users = User.new(params[:user])
-
-    respond_to do |format|
-      if @users.save
-        flash[:notice] = 'Users was successfully created.'
-        format.html { redirect_to(@users) }
-        format.xml  { render :xml => @users, :status => :created, :location => @users }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @users.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /users/1
-  # PUT /users/1.xml
-  def update
-    @users = User.find(params[:id])
-
-    respond_to do |format|
-      if @users.update_attributes(params[:user])
-        flash[:notice] = 'Users was successfully updated.'
-        format.html { redirect_to(@users) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @users.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /users/1
-  # DELETE /users/1.xml
-  def destroy
-    @users = User.find(params[:id])
-    @users.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(users_url) }
-      format.xml  { head :ok }
-    end
-  end
 end

@@ -1,10 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :notices
-
-  map.resources :users
-
   map.resources :projects
-  
   map.resources :releases
   map.resources :categories
 
@@ -45,6 +41,7 @@ ActionController::Routing::Routes.draw do |map|
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
+  map.connect ':controller/:action'
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 

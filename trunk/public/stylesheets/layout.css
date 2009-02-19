@@ -26,7 +26,13 @@ html {
 #nav {
     background:#ccc;
     padding:0 10px;
+}
+#nav right{
+    float:right;
+}
 
+#nav left{
+    float: left;
 }
 #nav ul{
     margin:0;
@@ -41,7 +47,7 @@ html {
 #main {
     background:#FFF;
     float:right;
- /*   margin-right: -150px; */
+    /*   margin-right: -150px; */
     width:850px;
 }
 #main h2, #main h3, #main p {
@@ -69,4 +75,9 @@ html {
     padding:5px;
     margin:0;
     text-align: center;
+}
+
+.separator {
+	padding:0 3px 0 3px;
+    color:black;
 }

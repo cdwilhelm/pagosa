@@ -37,8 +37,8 @@ class InitialSchema < ActiveRecord::Migration
       t.string   "email",       :limit => 50
       t.string  "name",         :limit => 50
       t.string  "login",        :limit => 20
-#      t.string   "hashed_password"
-#      t.string   "salt"
+      t.string   "hashed_password"
+      t.string   "salt"
       t.datetime "created_at"
       t.datetime "updated_at"
     end
