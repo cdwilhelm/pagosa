@@ -2,38 +2,38 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Pagosa: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'layout' %>
-</head>
-<body>
-  <div id="wrap">
-    <div id="header">
-      <h1>Welcome to Pagosa</h1>
-    </div>
-    <div id="nav">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Pagosa: <%= controller.action_name %></title>
+    <%= stylesheet_link_tag 'layout' %>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1>Welcome to Pagosa</h1>
+      </div>
+      <div id="nav">
         <ul>
           <li><%= link_to "Home", :controller=> "home" %></li>
           <% if current_user_logged_in? %>
             <li><strong>Welcome <%= current_user.name%>!</strong></li>
             <li><%= link_to "Logout" , :controller => 'users', :action => 'logout' %></li>
           <%else%>
-          <li><%=link_to 'Login', :controller=> "users", :action=>"login"%></li>
-          <li><%=link_to 'Sign Up',:controller => 'users', :action => 'add_user'%></li>
+            <li><%=link_to 'Login', :controller=> "users", :action=>"login"%></li>
+            <li><%=link_to 'Sign Up',:controller => 'users', :action => 'add_user'%></li>
           <%end%>
-     </ul>
-    </div>
+        </ul>
+      </div>
 
-  <div id="sidebar">
-    <%= yield :sidebar %>
-  </div>
-  <div id="main">
-    <%= yield  %>
-  </div>
-  <div id="footer">
-    <p>footer</p>
-  </div>
-  </div>
-</body>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+      <div id="main">
+        <%= yield  %>
+      </div>
+      <div id="footer">
+       <p>Copyright 2009, Curt Wilhelm</p>
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,19 +1,23 @@
-body,
-body {
+/*body {
     min-width:1000px;
-
-}
-html {
+    height: 100%;
+    
+    margin-left: 4px;
+}*/
+body,html {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
     margin:0;
-    padding:4px;
-    background:#a7a09a;
+    padding:0 10px;
+    background:#000;
     color:#000;
     margin-left: 4px;
+    height: 100%;
 }
 #wrap {
     background:#ccc;
     margin:0 auto;
     width:1000px;
+    height:100%
 }
 #header {
     background:#FFF;
@@ -24,19 +28,14 @@ html {
 }
 
 #nav {
-    background:#ccc;
+    background:#fff;
     padding:0 10px;
-}
-#nav right{
-    float:right;
-}
-
-#nav left{
-    float: left;
+    
+    font-weight: bold;
 }
 #nav ul{
     margin:0;
-    padding:0;
+    padding:5px;
     list-style:none;
 }
 #nav li{
@@ -48,17 +47,18 @@ html {
     background:#FFF;
     float:right;
     /*   margin-right: -150px; */
-    width:850px;
+    width:820px;
+    height:100%;
 }
 #main h2, #main h3, #main p {
     padding:0 10px;
-
 }
 
 #sidebar {
     background:#CCC;
     float:left;
-    width:150px;
+    width:180px;
+    height:100%;
 }
 #sidebar ul {
     margin-bottom:0;
@@ -70,14 +70,23 @@ html {
 #footer {
     background:#FFF;
     clear:both;
+    height: 25px;
 }
 #footer p {
     padding:5px;
-    margin:0;
+    margin:3px;
     text-align: center;
 }
 
 .separator {
-	padding:0 3px 0 3px;
+    padding:0 3px 0 3px;
     color:black;
+}
+
+table{
+
+    margin-left: 10px;
+}
+td{
+
 }
