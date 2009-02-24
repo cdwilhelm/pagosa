@@ -38,11 +38,14 @@
 
   <p>
     <%= f.label :planned_date %><br />
-    <%= f.text_field :planned_date %>
+    <%= f.text_field :planned_date, :size=>"10" %>
+
   </p>
   <p>
     <%= f.label :integrated_date %><br />
-    <%= f.text_field :integrated_date%>
+   <%= f.text_field :integrated_date, :size=>"10" %>
+     
+
   </p>
   <p>
     <% if @notice.id %>
@@ -52,3 +55,12 @@
     <%end%>
   </p>
 <% end %>
+
+<script>
+  $(document).ready(function(){
+    $("#notice_integrated_date").datepicker({showOn: 'button', buttonText: 'Choose date',  buttonImageOnly: true, dateFormat: 'yy-mm-dd'});
+    $("#notice_planned_date").datepicker({showOn: 'button', buttonText: 'Choose date', buttonImageOnly: true, dateFormat: 'yy-mm-dd'});
+  });
+</script>
+
+</script>
