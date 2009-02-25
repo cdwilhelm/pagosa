@@ -5,4 +5,6 @@ class Notice < ActiveRecord::Base
   belongs_to :user
   belongs_to :impact
   belongs_to :release
+
+  has_many :comment
 end

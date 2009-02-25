@@ -97,3 +97,14 @@ Impact.create!(:name => "Low")
 Release.create!(:project_id=>1,:name => "codename",:description => "first release", :version=>"1.0")
 Release.create!(:project_id=>2,:name => "codename",:description => "first release", :version=>"1.0")
 Release.create!(:project_id=>3,:name => "codename",:description => "first release", :version=>"1.0")
+
+Comment.create!(
+:notice_id=>2,
+:comment => "new comment",
+:user_id=> 1
+)
+Comment.create!(
+:notice_id=>1,
+:comment => "new comment",
+:user_id=> 2
+)

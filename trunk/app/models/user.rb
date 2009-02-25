@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   require 'digest/sha1'
 
   has_many :notice
+  has_many :comment
 
   validates_presence_of :name
   validates_presence_of :email

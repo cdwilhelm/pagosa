@@ -4,7 +4,7 @@
   <%if @notice %>
     <li><%=link_to "Edit", :controller=> "notices", :action=>"edit", :id=>@notice %>  </li>
     <li><a href="">Delete</a></li>
-    <li><a href="">Comment</a></li>
+    <li><%= link_to "Comments", :controller=> "comments", :notice_id=> @notice %></li>
   <%end%>
   <li><%=link_to  "Show All", :controller=> "notices", :action => "index",:id=>@project %></li>
 

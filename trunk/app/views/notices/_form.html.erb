@@ -1,61 +1,63 @@
-<% form_for(@notice) do |f| %>
-  <%= f.error_messages %>
+<fieldset>
+  <legend>Integration Notice</legend>
+  <% form_for(@notice) do |f| %>
+    <%= f.error_messages %>
 
-  <p>
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject, :size=> 80 %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :rows => 4, :columns => 80 %>
-  </p>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= @notice.user.name %>
-    <%= f.hidden_field :user_id%>
-  </p>
-  <p>
-    <%= f.label :project_id %><br />
-    <%= @notice.project.name %>
-    <%= f.hidden_field :project_id %>
-  </p>
-  <p>
-    <%= f.label :impact_id %><br />
-    <%= f.select :impact_id, @impacts %>
-  </p>
-  <p>
-    <%= f.label :category_id %><br />
-    <%= f.select :category_id, @categories %>
-  </p>
-  <p>
-    <%= f.label :release_id %><br />
-    <%= f.select :release_id, @releases %>
-  </p>
-  <p>
-    <%= f.label :status_id %><br />
-    <%= f.select :status_id, @statuses %>
-  </p>
+    <p>
+      <%= f.label :subject %>:<br />
+      <%= f.text_field :subject, :size=> 80 %>
+    </p>
+    <p>
+      <%= f.label :description %>:<br />
+      <%= f.text_area :description, :rows => 4, :columns => 80 %>
+    </p>
+    <p>
+      <%= f.label :user_id %>:<br />
+      <%= @notice.user.name %>
+      <%= f.hidden_field :user_id%>
+    </p>
+    <p>
+      <%= f.label :project_id %>:<br />
+      <%= @notice.project.name %>
+      <%= f.hidden_field :project_id %>
+    </p>
+    <p>
+      <%= f.label :impact_id %>:<br />
+      <%= f.select :impact_id, @impacts %>
+    </p>
+    <p>
+      <%= f.label :category_id %>:<br />
+      <%= f.select :category_id, @categories %>
+    </p>
+    <p>
+      <%= f.label :release_id %>:<br />
+      <%= f.select :release_id, @releases %>
+    </p>
+    <p>
+      <%= f.label :status_id %>:<br />
+      <%= f.select :status_id, @statuses %>
+    </p>
 
-  <p>
-    <%= f.label :planned_date %><br />
-    <%= f.text_field :planned_date, :size=>"10" %>
+    <p>
+      <%= f.label :planned_date %>:<br />
+      <%= f.text_field :planned_date, :size=>"10" %>
 
-  </p>
-  <p>
-    <%= f.label :integrated_date %><br />
-   <%= f.text_field :integrated_date, :size=>"10" %>
-     
+    </p>
+    <p>
+      <%= f.label :integrated_date %>:<br />
+      <%= f.text_field :integrated_date, :size=>"10" %>
 
-  </p>
-  <p>
-    <% if @notice.id %>
-      <%= f.submit "Update" %>
-    <%else%>
-      <%= f.submit "Create" %>
-    <%end%>
-  </p>
-<% end %>
 
+    </p>
+    <p>
+      <% if @notice.id %>
+        <%= f.submit "Update" %>
+      <%else%>
+        <%= f.submit "Create" %>
+      <%end%>
+    </p>
+  <% end %>
+</fieldset>
 <script>
   $(document).ready(function(){
     $("#notice_integrated_date").datepicker({showOn: 'button', buttonText: 'Choose date',  buttonImageOnly: true, dateFormat: 'yy-mm-dd'});

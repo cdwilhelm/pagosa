@@ -1,0 +1,51 @@
+
+<%content_for :sidebar do%>
+  <%= render :partial=>'sidebars/notices'%>
+<%end%>
+
+<h1>Comments</h1>
+
+<table>
+  <tr>
+    <th>Comment</th>
+    <th>User</th>
+    <th>Notice</th>
+  </tr>
+
+  <% for comment in @comments %>
+    <tr>
+      <td><%=h comment.comment %></td>
+      <td><%=h comment.user.name %></td>
+      <td><%=h comment.notice_id %></td>
+      <tr>
+        <td><%= link_to 'Show', comment %></td>
+        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+<fieldset>
+  <% form_for(@comment) do |f| %>
+    <%= f.error_messages %>
+
+    <%= f.hidden_field :user_id  %>
+
+    <%= f.hidden_field :notice_id  %>
+
+    <p>
+      <%= f.label :comment %>:<br />
+      <%= f.text_area :comment , :rows=>"10",:cols=>"80" %>
+    </p>
+    <p>
+      <% if @comment.id %>
+        <%= f.submit "Update" %>
+      <%else%>
+        <%= f.submit "Create" %>
+      <%end%>
+    </p>
+
+  <% end %>
+</fieldset>

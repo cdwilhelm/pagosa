@@ -29,12 +29,9 @@ class NoticesController < ApplicationController
     @notice = Notice.new
     @notice.project_id = params[:id]
     @project = Project.find(:all,:conditions => {:id => @notice.project_id})
-    @notice.user_id =1
+    @notice.user_id = current_user_id
 
-    @categories = Category.find(:all, :conditions => {:project_id => @notice.project_id},:order => "name" ).map {|u| [u.name, u.id] }
-    @releases = Release.find(:all, :conditions => {:project_id => @notice.project_id},:order => "name" ).map {|u| [u.name, u.id] }
-    @impacts =  Impact.find(:all,:order => "name" ).map {|u| [u.name, u.id] }
-    @statuses = Status.find(:all,:order => "name" ).map {|u| [u.name, u.id] }
+    self.setup
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,11 +43,7 @@ class NoticesController < ApplicationController
   def edit
     @notice = Notice.find(params[:id])
 
-    @project = Project.find(:all,:conditions => {:id => @notice.project_id})
-    @categories = Category.find(:all, :conditions => {:project_id => @notice.project_id},:order => "name" ).map {|u| [u.name, u.id] }
-    @releases = Release.find(:all, :conditions => {:project_id => @notice.project_id},:order => "name" ).map {|u| [u.name, u.id] }
-    @impacts =  Impact.find(:all,:order => "name" ).map {|u| [u.name, u.id] }
-    @statuses = Status.find(:all,:order => "name" ).map {|u| [u.name, u.id] }
+    self.setup
   end
 
   # POST /notices
@@ -98,5 +91,12 @@ class NoticesController < ApplicationController
       format.html { redirect_to(notices_url) }
       format.xml  { head :ok }
     end
+  end
+  def setup
+    @project = Project.find(:all,:conditions => {:id => @notice.project_id})
+    @categories = Category.find(:all, :conditions => {:project_id => @notice.project_id},:order => "name" ).map {|u| [u.name, u.id] }
+    @releases = Release.find(:all, :conditions => {:project_id => @notice.project_id},:order => "name" ).map {|u| [u.name, u.id] }
+    @impacts =  Impact.find(:all,:order => "name" ).map {|u| [u.name, u.id] }
+    @statuses = Status.find(:all,:order => "name" ).map {|u| [u.name, u.id] }
   end
 end

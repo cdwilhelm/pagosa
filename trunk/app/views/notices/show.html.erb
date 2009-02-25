@@ -1,46 +1,57 @@
 <%content_for :sidebar do%>
   <%= render :partial=>'sidebars/notices'%>
 <%end%>
-<p style="color: green"><%= flash[:notice] %></p>
-<% form_for(@notice) do |f| %>
-  <p>
-    <b>Subject:</b>
-    <%=h @notice.subject %>
-  </p>
+<fieldset>
+  <legend>Intergation Notice</legend>
+  <p style="color: green"><%= flash[:notice] %></p>
+  <% form_for(@notice) do |f| %>
+    <p>
+      <b>Subject:</b>
+      <%=h @notice.subject %>
+    </p>
 
-  <p>
-    <b>Description:</b>
-    <%=h @notice.description %>
-  </p>
+    <p>
+      <b>Description:</b>
+      <%=h @notice.description %>
+    </p>
 
-  <p>
-    <b>User:</b>
-    <%=h @notice.user.name %>
-  </p>
+    <p>
+      <b>User:</b>
+      <%=h @notice.user.name %>
+    </p>
 
-  <p>
-    <b>Project:</b>
-    <%=h @notice.project.name %>
-    <%= f.hidden_field :project_id %>
-  </p>
+    <p>
+      <b>Project:</b>
+      <%=h @notice.project.name %>
+      <%= f.hidden_field :project_id %>
+    </p>
 
-  <p>
-    <b>Category:</b>
-    <%=h @notice.category.name %>
-  </p>
+    <p>
+      <b>Category:</b>
+      <%=h @notice.category.name %>
+    </p>
 
-  <p>
-    <b>Status:</b>
-    <%=h @notice.status.name %>
-  </p>
+    <p>
+      <b>Status:</b>
+      <%=h @notice.status.name %>
+    </p>
 
-  <p>
-    <b>Impact:</b>
-    <%=h @notice.impact.name %>
-  </p>
+    <p>
+      <b>Impact:</b>
+      <%=h @notice.impact.name %>
+    </p>
 
-  <p>
-    <b>release:</b>
-    <%=h @notice.release.name %>
-  </p>
-<%end%>
+    <p>
+      <b>Release:</b>
+      <%=h @notice.release.name %>
+    </p>
+    <p>
+    <b>Planned Date:</b>
+    <%=h @notice.planned_date %>
+    </p>
+    <p>
+    <b>Intergrated Date:</b>
+    <%=h @notice.integrated_date %>
+    </p>
+  <%end%>
+</fieldset>

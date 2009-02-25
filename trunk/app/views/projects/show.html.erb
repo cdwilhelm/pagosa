@@ -2,32 +2,24 @@
   <%= render :partial=>'sidebars/projects'%>
   <% @project %>
 <%end%>
+<fieldset>
+  <legend>Project Settings</legend>
+  <p style="color: green"><%= flash[:notice] %></p>
+  <% form_for(@project) do |f| %>
+    <p>
+      <b>Name:</b>
+      <%=h @project.name %>
+      <%= f.hidden_field :id %>
+    </p>
+  
+    <p>
+      <b>Display name:</b>
+      <%=h @project.display_name %>
+    </p>
 
-<p style="color: green"><%= flash[:notice] %></p>
-<% form_for(@project) do |f| %>
-<p>
-  <b>Name:</b>
-  <%=h @project.name %>
-  <%= f.hidden_field :id %>
-</p>
-
-<p>
-  <b>Display name:</b>
-  <%=h @project.display_name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%=h @project.description %>
-</p>
-
-<p>
-  <b>Created at:</b>
-  <%=h @project.created_at %>
-</p>
-
-<p>
-  <b>Updated at:</b>
-  <%=h @project.updated_at %>
-</p>
-<%end%>
+    <p>
+      <b>Description:</b>
+      <%=h @project.description %>
+    </p>
+  <%end%>
+</fieldset>
