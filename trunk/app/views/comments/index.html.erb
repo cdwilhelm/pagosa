@@ -25,7 +25,9 @@
     </tr>
   <% end %>
 </table>
-
+<% if ! @comments  %>
+  There are no comments at this time.
+<%end%>
 <br />
 <fieldset>
   <% form_for(@comment) do |f| %>

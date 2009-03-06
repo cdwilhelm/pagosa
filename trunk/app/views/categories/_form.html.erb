@@ -1,0 +1,28 @@
+<fieldset>
+  <legend>Category</legend>
+  <% form_for(@category) do |f| %>
+    <%= f.error_messages %>
+
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :description %><br />
+      <%= f.text_field :description %>
+    </p>
+
+    <p>
+      <% if @category.id %>
+        <%= f.submit "Update" %>
+      <%else%>
+        <%= f.submit "Create" %>
+      <%end%>
+    </p>
+
+    <%= f.hidden_field :project_id %>
+
+    <%= f.hidden_field :user_id %>
+  <% end %>
+
+</fieldset>

@@ -4,17 +4,17 @@
 <ul>
   <% if @project %>
     <li><%=link_to "New Notice", :controller=> "notices", :action=>"new", :id=>@project %>  </li>
-    <li><%= link_to  "Show Notices", :controller=> "notices", :action=> "index", :id=>@project%></li>
+    <li><%= link_to  "Notices", :controller=> "notices", :action=> "index", :id=>@project%></li>
     <li><%= link_to  "Edit", :controller=> "projects", :action =>"edit" , :id=>@project%></li>
   <%end%>
 </ul>
 <p>
-  <strong>Management</strong>
+  <strong>Manage</strong>
 </p>
 <ul>
-  <li><%= link_to  "Show Projects", :controller=> "home"%></li>
-  <li><a href="#">Categories</a></li>
-  <li><a href="#">Releases</a></li>
+  <li><%= link_to  "Categories", :controller=> "categories", :id=>@project%></li>
+  <li><%= link_to  "Releases", :controller=> "releases", :id=>@project%></li>
+  <li><%= link_to  "All Projects", :controller=> "home"%></li>
 </ul>
 
 

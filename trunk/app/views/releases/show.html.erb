@@ -1,0 +1,21 @@
+<%content_for :sidebar do%>
+  <%= render :partial=>'sidebars/releases'%>
+<%end%>
+
+<fieldset>
+  <legend>Release</legend>
+<p>
+  <b>Name:</b>
+  <%=h @release.name %>
+</p>
+
+<p>
+  <b>Version:</b>
+  <%=h @release.version %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @release.description %>
+</p>
+</fieldset>

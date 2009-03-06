@@ -1,0 +1,17 @@
+<%content_for :sidebar do%>
+  <%= render :partial=>'sidebars/categories'%>
+<%end%>
+
+<fieldset>
+  <legend>Categroy</legend>
+<p>
+  <b>Name:</b>
+  <%=h @category.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @category.description %>
+</p>
+
+</fieldset>

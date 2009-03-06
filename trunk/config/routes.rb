@@ -1,4 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :releases
+
+  map.resources :categories
+
+  map.resources :releases
+
+  map.resources :categories
+
+  map.resources :controllers
+
   map.resources :comments
 
   map.resources :notices

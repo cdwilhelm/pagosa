@@ -1,0 +1,20 @@
+<%content_for :sidebar do%>
+  <%= render :partial=>'sidebars/releases'%>
+<%end%>
+<h1>Listing releases</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Version</th>
+    <th>Description</th>
+  </tr>
+
+<% for release in @releases %>
+  <tr>
+    <td><%= link_to release.name, release %></td>
+    <td><%=h release.version %></td>
+    <td><%=h release.description %></td>
+  </tr>
+<% end %>
+</table>

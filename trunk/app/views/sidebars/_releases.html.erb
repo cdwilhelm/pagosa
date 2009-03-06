@@ -1,0 +1,17 @@
+<p><strong>Actions</strong></p>
+<ul>
+  <li><%=link_to "New Release", :controller=> "releases", :action=>"new", :id=>@project %>  </li>
+  <%if @release %>
+    <li><%=link_to "Edit", :controller=> "releases", :action=>"edit", :id=>@release %>  </li>
+    <li><%= link_to 'Delete', @release, :confirm => 'Are you sure?', :method => :delete %></li>
+  <%end%>
+  <li><%=link_to  "Show All", :controller=> "releases", :id=>@project %></li>
+
+</ul>
+<p><strong>Manage</strong></p>
+
+<ul>
+  <li><%=link_to "Project", :controller=> "projects", :action=>"show",:id=> @project%></li>
+  <li><%=link_to  "All Categories", :controller=> "categories", :id=>@project %></li>
+  <li><%= link_to  "All Projects", :controller=> "home"%></li>
+</ul>

@@ -1,0 +1,34 @@
+<fieldset>
+  <legend>Release</legend>
+
+<% form_for(@release) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :version %><br />
+    <%= f.text_field :version %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+
+
+    <%= f.hidden_field :project_id %>
+    <%= f.hidden_field :user_id %>
+
+
+    <p>
+      <% if @release.id %>
+        <%= f.submit "Update" %>
+      <%else%>
+        <%= f.submit "Create" %>
+      <%end%>
+    </p>
+<% end %>
+</fieldset>
+
